@@ -1,0 +1,28 @@
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+
+{% block main_content %}
+
+    <h2>
+        {{ exercise_name }}
+    </h2>
+    <form class="exercises" name="exercises" action="{{ action }}" method="POST">
+    {% csrf_token %}
+    <ol>
+    {% for line in exercise_parts %}
+            <li>
+                {%  for part in line %}
+                    {% if part.partType == part.QUESTION_PART %}
+                        <label>{{ part.text }}</label>
+                    {% else %}
+                        <input name="{{ part.partName }}" type="text" size = "4"/>
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ol>
+
+    <hr>
+    <input type="submit" value="Check">
+    </form>
+{% endblock main_content %}

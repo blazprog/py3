@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Learning words</title>
+</head>
+<body>
+<h1>
+    List of all words
+</h1>
+{% for word in words_list %}
+   <div> {{ word }} </div>
+{% endfor %}
+<a href="{%  url 'words:home' %}">Home</a>
+
+</body>
+
+</html>

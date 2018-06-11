@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Select language of exercises</title>
+</head>
+<body>
+    <h1>TUJI JEZIKI</h1>
+    <h2>Izberi jezik</h2>
+    <ul>
+        {% for language in languages %}
+            <li><a href="{% url 'exercise_list' language=language.language %}">
+                {{ language.description }}</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

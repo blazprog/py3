@@ -1,0 +1,37 @@
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{% block page_styles %}
+h2 {
+        margin-bottom: 20px;
+        color: blue;
+    }
+
+{% endblock page_styles %}
+
+
+{% block main_content %}
+    <div class="container">
+    <a class="create_exercise"
+        href = "{% url 'subject_create' language=language.language%}">{{ Nova_tema }}</a>
+    </a>
+    <a class = "create_exercise"
+       href = "{% url 'exercise_create' language=language.language subject=subject.id %}">{{ Nova_vaja }}</a>
+     <h2>{{ Seznam_vaj }} {{ subject.subject }}</h2>
+
+    <table class="exercises">
+    {% for exercise in exercises %}
+        <tr>
+            <td>{{ exercise.name }}</td>
+            <td class="button">
+                <a class = "button_edit" href=" {% url 'exercise_update' pk=exercise.id  language=exercise.language.language %}">{{ Edit }}</a>
+            </td>
+            <td class="button">
+                <a class = "button_solve" href=" {% url 'exercise_solve' pk=exercise.id language=exercise.language.language %}">{{ Solve }}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </div>
+{% endblock main_content %}

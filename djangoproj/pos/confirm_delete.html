@@ -1,0 +1,36 @@
+<!--modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labeledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                    &times
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Window Title
+                </h4>
+            </div> <!--class="modal-header"-->
+            <div id="modalContent" class="modal-body">
+                <form role="form">
+                <div class="form-group">
+                    <label for="inputname">Your name</label>
+                    <input type="text" id="inputname" class="form-control"></input>
+                    <p class="help-block">Example block-level help text here.</p>
+                    <p id="modaltext"></p>
+                </div>
+                </form>
+            </div> <!--class="modal-body"-->
+
+            <div class="modal-footer">
+                <button id="dlg_btnclose" type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <button id="dlg_btnok" type="button" class="btn btn-primary" data-dismiss="modal">
+                    Submit
+                </button>
+            </div> <!-- class=modal-footer-->
+        </div> <!--class=modal-content-->
+    </div> <!--class=modal-dialog-->
+</div>

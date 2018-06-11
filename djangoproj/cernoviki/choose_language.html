@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Choose language of exercises</title>
+<link rel="stylesheet" type="text/css" href="theme.css">
+<meta charset="utf-8"> 
+</head>
+
+<body>
+	<div class="main_content">
+		<header>
+		<h1 id="tekst_naslova">Izberi jezik vaj</h1>
+		</header>
+		<div class="left-image">
+			<img src="student-laptop.jpg" alt="Picture of happy student">	
+		</div>
+		<div class="languages">
+			<ul>
+				<li><a class="en" href="#">English</a></li>
+				<li><a class= "de" href="#">Deutsch</a></li>
+				<li><a class="ru"  href="#">Русский</a></li>
+			</ul>	
+		</div>
+
+		<footer>
+			<h2 id="tekst_noge">
+				Veliko uspeha!
+			</h2>
+		</footer>
+	</div>
+	
+	<script>
+		var myVar=setInterval(function(){myTimer()},5000);
+		var i = 0;
+		pg_header = ["Izberi jezik vaj", "Choose the language of exercisses", "Wällen Sie die Sprache der Übungen", "Выберите язык упражнений"];
+		pg_footer = ["Veliko uspeha!", "Good luck!", "Viel Glück!", "Удачи вам!"];
+		
+		function myTimer() {
+   		i = i+1;
+    		if (i > pg_header.length - 1) { i=0;}
+      	document.getElementById("tekst_naslova").innerHTML = pg_header[i];
+      	document.getElementById("tekst_noge").innerHTML = pg_footer[i];
+		}	
+	</script>
+
+</body>
+
+</html> 

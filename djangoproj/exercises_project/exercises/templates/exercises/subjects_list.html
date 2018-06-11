@@ -1,0 +1,12 @@
+
+{% if subjects %}
+    <ul>
+    {% for s in subjects %}
+        <li><a href="{% url 'exercise_list' pk=s.id language=s.language.language %}">{{ s.subject }}</a></li>
+    {% endfor %}
+
+{% else %}
+    <li> <strong >There are no subjects present.</strong></li>
+
+    </ul>
+{% endif %}

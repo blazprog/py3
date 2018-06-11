@@ -1,0 +1,57 @@
+{% extends "invoices/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main_content%}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <caption>
+                    <a href="{% url 'racun_add' %}">
+                    <span class="glyphicon glyphicon-plus"/>
+                    </a>
+                        &nbsp Seznam izdanih racunov
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Stevilka</th>
+                        <th>Stranka</th>
+                        <th>Datum izdaje</th>
+                        <th>Datum valute</th>
+                        <th>Prodajalec</th>
+                    </tr>
+                </thead>
+                {% for racun in seznam_racunov %}
+                    <tr>
+                        <td>{{ racun.stevilka }}</td>
+                        <td>{{ racun.stranka }}</td>
+                        <td>{{ racun.datum_izdaje }}</td>
+                        <td>{{ racun.datum_valute }}</td>
+                        <td>{{ racun.prodajalec }}</td>
+                        <td class align="right">
+                            <a class="btn-table btn-edit"
+                                    type="button"
+                                    href = "{% url 'racun_edit' pk=racun.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a class="btn-table btn-delete"
+                                    type="button"
+                                    href = "{% url 'racun_view' pk=racun.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-zoom-in"></span>
+                            </a>
+                            <a class="btn-table btn-delete"
+                                    type="button"
+                                    href = "{% url 'racun_edit' pk=racun.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </div>
+{% endblock main_content %}

@@ -1,0 +1,16 @@
+{% extends "cvetlicarna/base.html" %}
+{% block article_block %}
+<div class="artikel_nav">
+    <a href="{% url 'cvetlicarna:seznam_artiklov' %}">Seznam artiklov</a>
+</div>
+<h2>Nov artikel</h2>
+
+<form method="post" action="{{ action }}">
+    {% csrf_token %}
+    <table class="input_fieds">
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Save"/>
+</form>
+
+{% endblock article_block %}

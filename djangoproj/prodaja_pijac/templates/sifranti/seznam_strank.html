@@ -1,0 +1,117 @@
+{% extends "common/base.html" %}
+{% load static %}
+
+{% block main_content%}
+{% include 'sifranti/confirm_modal.html' %}
+
+    <div class="container">
+    
+    <div class="row">
+        <div class="col-md-12">
+             <button type='button' id="pb_lookup" class="btn btn-default"
+                data-toggle='collapse' data-target='#search_form'>
+                 Search!
+             </button>
+            <div id="search_form" class='collapse' style='margin-top:10px;'>
+                <form class="form-inline" role="form" method='get' action='{% url 'seznam_strank' %}'>
+
+                    <div class="form-group col-md-2">
+                    <label class="sr-only" for="sifra"></label>
+                    <input id="sifra" name='sifra' class="form-control" type="text" placeholder="Sifra">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                    <label class="sr-only" for="naziv">Naziv</label>
+                    <input id="naziv" name='naziv' class="form-control" type="text" placeholder="Naziv">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                    <label class="sr-only" for="posta">Posta</label>
+                    <input id="posta" name='posta' class="form-control" type="text" placeholder="Posta">
+                    </div>
+                    
+                    <div class="form-group col-md-2">
+                    <label class="sr-only" for="ulica">Ulica</label>
+                    <input id="ulica" name='ulica' class="form-control" type="text" placeholder="Ulica">
+                    </div>
+
+
+                    <div class="form-group col-md-2">
+                    <label class="sr-only" for="name">Kraj</label>
+                    <input id="kraj" name='kraj' class="form-control" type="text" placeholder="Kraj">
+                    </div>
+                    
+                    <div class="col-md-1">
+                    <button class="btn btn-default" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+         </div> 
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <caption>
+                    <a href="{% url 'stranka_add' %}">
+                    <span class="glyphicon glyphicon-plus"/>
+                    </a>
+                        &nbsp Seznam strank trgovine
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Šifra</th>
+                        <th>Naziv</th>
+                        <th>Pošta</th>
+                        <th>Ulica</th>
+                        <th>Kraj</th>
+                    </tr>
+                </thead>
+                {% for stranka in seznam_strank %}
+                    <tr>
+                        <td>{{ stranka.sifra }}</td>
+                        <td>{{ stranka.naziv }}</td>
+                        <td>{{ stranka.posta }}</td>
+                        <td>{{ stranka.ulica }}</td>
+                        <td>{{ stranka.kraj }}</td>
+                        <td class align="right">
+                            <a class="btn-table btn-edit"
+                                    type="button"
+                                    href = "{% url 'stranka_edit' pk=stranka.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a id={{stranka.id}} class="btn-table btn-delete" 
+                                type = 'button'
+                                data-toggle="modal"
+                                data-strankaid = '{{ stranka.id }}' 
+                                data-strankanaziv = '{{ stranka.naziv }}'
+                                data-target="#myModal">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+    </div>
+
+<script>
+    $(document).ready(function() {
+        $('.btn-delete').on("click", function (e) {
+            var idstranke = $(this).data('strankaid');
+            var nazivstranke = $(this).data('strankanaziv');
+            var action = '/sifranti/stranka_delete/' + idstranke + '/';
+
+            $("#myModal").data("strankaid", idstranke);
+            $("#myModal .well").html("Brisem stranko " + nazivstranke);
+            $('#frm_delconfirm').attr('action', action);
+        });
+
+        }) //ready
+</script>
+{% endblock main_content %}

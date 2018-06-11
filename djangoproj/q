@@ -1,0 +1,46 @@
+                       List of relations
+ Schema |               Name                |   Type   | Owner 
+--------+-----------------------------------+----------+-------
+ public | auth_group                        | table    | blaz
+ public | auth_group_id_seq                 | sequence | blaz
+ public | auth_group_permissions            | table    | blaz
+ public | auth_group_permissions_id_seq     | sequence | blaz
+ public | auth_permission                   | table    | blaz
+ public | auth_permission_id_seq            | sequence | blaz
+ public | auth_user                         | table    | blaz
+ public | auth_user_groups                  | table    | blaz
+ public | auth_user_groups_id_seq           | sequence | blaz
+ public | auth_user_id_seq                  | sequence | blaz
+ public | auth_user_user_permissions        | table    | blaz
+ public | auth_user_user_permissions_id_seq | sequence | blaz
+ public | django_admin_log                  | table    | blaz
+ public | django_admin_log_id_seq           | sequence | blaz
+ public | django_content_type               | table    | blaz
+ public | django_content_type_id_seq        | sequence | blaz
+ public | django_migrations                 | table    | blaz
+ public | django_migrations_id_seq          | sequence | blaz
+ public | django_session                    | table    | blaz
+ public | dokumenti_counter                 | table    | blaz
+ public | dokumenti_counter_id_seq          | sequence | blaz
+ public | dokumenti_documentcounter         | table    | blaz
+ public | dokumenti_documentcounter_id_seq  | sequence | blaz
+ public | dokumenti_racun                   | table    | blaz
+ public | dokumenti_racun_id_seq            | sequence | blaz
+ public | dokumenti_racunpozicija           | table    | blaz
+ public | dokumenti_racunpozicija_id_seq    | sequence | blaz
+ public | sifranti_artikel                  | table    | blaz
+ public | sifranti_artikel_id_seq           | sequence | blaz
+ public | sifranti_counter                  | table    | blaz
+ public | sifranti_counter_id_seq           | sequence | blaz
+ public | sifranti_documentcounter          | table    | blaz
+ public | sifranti_documentcounter_id_seq   | sequence | blaz
+ public | sifranti_racun                    | table    | blaz
+ public | sifranti_racun_id_seq             | sequence | blaz
+ public | sifranti_racunpozicija            | table    | blaz
+ public | sifranti_racunpozicija_id_seq     | sequence | blaz
+ public | sifranti_skupinaartikla           | table    | blaz
+ public | sifranti_skupinaartikla_id_seq    | sequence | blaz
+ public | sifranti_stranka                  | table    | blaz
+ public | sifranti_stranka_id_seq           | sequence | blaz
+(41 rows)
+

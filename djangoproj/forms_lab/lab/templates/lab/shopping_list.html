@@ -1,0 +1,89 @@
+{% extends "lab/base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+
+
+
+<!--modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labeledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                    &times
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Choose artikle of your choice
+                </h4>
+            </div> <!--class="modal-header"-->
+            <div id="modalContent" class="modal-body">
+                <h1>List of brand new articles</h1>
+                <select id = 'modal_chooser' class='chooser' size='7'>
+                    <option>First choice</option>
+                    <option>Second function</option>
+                    <option>Third function</option>
+                    <option>fourth function</option>
+                    <option>Last choice</option>
+                </select>
+            </div> <!--class="modal-body"-->
+
+            <div class="modal-footer">
+                <input id='btnOkModal' class='btn btn-danger' type="button" value="Choose" />
+            </div> <!-- class=modal-footer-->
+        </div> <!--class=modal-content-->
+    </div> <!--class=modal-dialog-->
+</div>
+
+
+<div class="container">
+    <form method="post" action="{{ action }}">
+        {% csrf_token %}
+        {{ form_detail.management_form }}
+        <div class  = "row">
+            <div class="col-md-10">
+                {% crispy form_master %}
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col-md-10">
+                <table id='nakup-pozicije' class = table-formset" data-formsetname='nakupizdelki'>
+                    <thead>
+                    Izdelki v nakupovalni košarici
+                    <tr>
+                        <th class='izdelek'>Izdelek</th>
+                        <th class='kolicina'>Količina</th>
+                        <th class='cena'>Cena</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for form in form_detail %}
+                        {{ form.id }}
+                         <tr>
+                            <td class='izdelek'> {{ form.izdelek }} </td>
+                            <td class='kolicina'> {{ form.kolicina }} </td>
+                            <td class='cena'> {{form.cena }} </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <input class="btn btn-success" type="submit" value = "Save"/>
+            <input id='add_line_btn' class="btn btn-default" value = "Add line"/>
+        </div>
+    </form>
+</div>
+
+
+
+    
+<script src="{% static 'bootstrap/js/jquery.js' %}"></script>
+<script src="{%  static "bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="{%  static "formset_management.js" %}"></script>
+
+{% endblock main_content %}

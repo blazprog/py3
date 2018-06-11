@@ -1,0 +1,146 @@
+{% extends "common/base.html" %}
+{% load static %}
+
+{% block main_content%}
+    <script type="text/template" id="tmplStranka">
+        <div>************Costumer data***************************</div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= sifra %>' 
+                    id='sifra'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= naziv %>' 
+                    id='naziv'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= posta %>' 
+                    id='posta'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= ulica %>' 
+                    id='ulica'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= kraj %>' 
+                    id='kraj'/> 
+        </div>
+        <div>
+        <button type='button' class='btn btn-primary' 
+            name='butSaveStranka' 
+            id='butSaveStranka'>Save it</button>
+        </div>
+    </script>
+    
+    <script type='text/template' id='tmplArtikel'>
+        <div>************Artikel data****************************</div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= sifra %>' 
+                    id='sifra'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= naziv %>' 
+                    id='naziv'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= skupina %>' 
+                    id='skupina'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= em %>' 
+                    id='em'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= davek %>' 
+                    id='davek'/> 
+        </div>
+        <div><input type='text' 
+                    class='form-control' 
+                    value='<%= cena %>' 
+                    id='cena'/> 
+        </div>
+        <button type='button' class='btn btn-primary' 
+            name='butSaveArtikel' 
+            id='butSaveArtikel'>Save it</button>
+    </script>
+
+    <script type='text/template' id='tmplSkupinaArtikla'>
+        <td><input type='text' 
+                class = 'form-control'
+                value ='<%= id %>'
+                size='1'
+                id='id'/> 
+        </td>
+        <td><input type='text' 
+                class = 'form-control'
+                value ='<%= naziv %>'
+                id='naziv'/> 
+        </td>
+    </script>
+
+
+    <div class="container">
+        <div class="row">
+            <h3>Wellcome to backbone</h3>
+        </div>
+
+        <div class="row">
+            <div class='form-group col-sm-5'>
+                <form>
+                    <label for='search'>Enter customer id</label>
+                    <input type='text' class='form-control' name='searchStranka' id='searchStranka'>
+                    <div>
+                        <input type='button' class='btn btn-default' 
+                              name='butSearchStranka' 
+                              id='butSearchStranka' value='Get it'>
+                        <input type='button' class='btn btn-default' 
+                              name='butAddStranka' 
+                              id='butAddStranka' value='Add new'>
+                    </div>
+                </form>
+            </div>
+            <div class='form-group col-sm-7' id='searchResultStranka'>
+
+            </div>
+        </div> <!--class=row -->
+        <div class="row">
+            <div class='form-group col-sm-5'>
+                <form>
+                    <label for='search'>Enter articel id</label>
+                    <input type='text' class='form-control' 
+                        name='searchArtikel' 
+                        id='searchArtikel'>
+                    <button type='button' class='btn btn-primary' 
+                        name='butSearchArtikel' 
+                        id='butSearchArtikel'>Get it</button>
+                    <button type='button' class='btn btn-default' 
+                        name='butAddArtikel' 
+                        id='butAddArtikel'>Add new</button>
+                </form>
+            </div>
+            <div class='form-group col-sm-7' id='searchResultArtikel'>
+                <!--placeholder -->
+            </div>
+        </div> <!--class=row -->
+        <div class="row">
+            <div class='skupinePlaceholder' 'col-sm-4'>
+                <!--Tu se bodo vnesele skupine iz backbone modela --> 
+            </div>
+        </div>
+        <div class="row">
+            <h1>Test backbone routerja</h1>
+            <div class="router">
+            </div>
+        </div>
+    </div>
+    <script src="{%  static "_js/dokumenti.js" %}"></script>
+{% endblock main_content %}

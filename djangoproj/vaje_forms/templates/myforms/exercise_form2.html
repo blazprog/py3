@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <h3>Edit an Exercise</h3>
+    <h2>Nova vaja</h2>
+    <form action="{{ action }}" method="post">
+        {% csrf_token %}
+        {{  form }}
+        <input class="btn btn-primary" type="submit" value="Save{{ save }}"/>
+    </form>
+</body>
+</html>

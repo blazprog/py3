@@ -1,0 +1,29 @@
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+
+{% block page_styles %}
+    td.button {
+        text-align: right;
+    }
+
+{% endblock %}
+
+{% block main_content %}
+    <a class = "create_exercise button"href = "{% url 'exercise_create' language=language.language  subject=subject.id %}">Dodaj novo vajo</a>
+     <h2>Seznam vaj</h2>
+    <table class="exercises">
+    {% for exercise in exercises %}
+        <tr>
+            <td>{{ exercise.name }}</td>
+            <td class="button">
+                <a class = "button" href=" {% url 'exercise_update' pk=exercise.id language=exercise.language.language %}">Edit</a>
+            </td>
+            <td class="button">
+                <a class = "button" href=" {% url 'exercise_solve' pk=exercise.id language=exercise.language.language %}">Solve</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+
+{% endblock main_content %}

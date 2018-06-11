@@ -1,0 +1,9 @@
+{% extends "myforms/base.html" %}
+{% block content %}
+
+    <h1>Main options of application</h1>
+    <ul>
+        <li><a href="{% url 'get_name' %}">Get name</a></li>
+        <li><a href="{% url 'get_contact' %}">Get contact</a></li>
+    </ul>
+{% endblock content %}

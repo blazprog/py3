@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="{% url 'recipes:new_recipe' %}" method="post">
+    {% csrf_token %}
+    {{ ingredient_formset.management_form }}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <div>Ingredients</div>
+    <div class = "ingredients_table">
+        <table>
+            <tr><th>Ingredient for recipe</th></tr>
+            {% for form in ingredient_formset %}
+                <tr>
+                    <td>
+                        {{ form.ingredient }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <input type="submit" name="submit" value="Submit" class="button">
+  </form>
+
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+    body {
+        background-color:#FFFFCC;
+        width: 760px;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px;
+    }
+
+
+    .top-container {
+        width: 150px;
+        height: 150px;
+        margin-left:20px;
+        float: left;
+        background: yellow;
+    margin-bottom: 120;
+
+    }
+
+
+    .divider {
+        margin-bottom:120;
+        clear: both;
+    }
+
+
+    .bottom-container {
+        width: 150px;
+        height: 150px;
+        margin-left:20px;
+        float: left;
+        background: green;
+
+    }
+
+    .circle {
+        width:50px;
+        height: 50px;
+        border-radius: 25px;
+        margin-bottom: 12px;
+        z-index: 100;
+        background: black;
+    }
+
+    .small-circle {
+        width:18px;
+        height: 18px;
+        border-radius: 9px;
+        margin-bottom: 8px;
+        margin-left: 8px;
+        background:#BDB76B;
+        float:left;
+        z-index: 100;
+    }
+
+
+    .white-circle {
+        background: white;
+    }
+
+    .black-circle {
+        background: black;
+    }
+
+    #c1 {
+        width:50px;
+        height: 50px;
+        border-radius: 25px;
+        margin-bottom: 12px;
+        z-index: 100;
+        background: yellow;
+    }
+    #c2{
+        background: magenta;
+    }
+    #c3{
+        background: green;
+    }
+    #c4{
+        background: blue;
+    }
+    #c5{
+        background: red;
+    }
+
+    #c6{
+        background: brown;
+    }
+
+    .circles-panel {
+        float:left;
+    }
+
+    .solution-panel {
+        float: left;
+        margin-left: 50px;
+    }
+
+
+    .row, .hint {
+        width:66px;
+        height: 66px;
+        margin-left: 2px;
+        background: #F0E68C;
+        margin-bottom: 4px;
+        float: left;
+        z-index: 100;
+    }
+   
+   .hint {
+        width: 52px;
+        height: 52px;   
+        padding:8px;
+   } 
+
+    #r1c1 {
+        width:66;
+        height:66;
+        margin-left: 2px;
+        background: #F0E68C;
+        margin-bottom:4px;
+    }
+
+    .hint {
+        background:#BDB76B;
+        margin-left: 20px;
+    }
+
+    .left-most {
+        clear: both;
+    }
+    
+    .result-panel {
+        margin-top:15px;
+        clear: both;
+    }
+
+
+    .solution-circle {
+        margin-top:9px;
+        margin-left: 9px;
+    }
+
+    .puzzle-solution {
+        display: none;
+        margin-top:20px;
+    }

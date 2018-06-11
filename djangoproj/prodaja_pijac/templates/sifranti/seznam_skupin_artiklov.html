@@ -1,0 +1,59 @@
+{% extends "common/base.html" %}
+
+{% block main_content%}
+{% include 'sifranti/confirm_modal.html' %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <table class="table table-striped">
+                <caption>
+                    <a href="{% url 'skupina_artikla_add' %}">
+                    <span class="glyphicon glyphicon-plus"/>
+                    </a>
+                        &nbsp Seznam skupin artiklov v trgovini
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Naziv</th>
+                    </tr>
+                </thead>
+                {% for skupina in seznam_skupin_artiklov %}
+                    <tr>
+                        <td>{{ skupina.naziv }}</td>
+                        <td class align="right">
+                            <a class="btn-table btn-edit"
+                                    type="button"
+                                    href = "{% url 'skupina_artikla_edit' pk=skupina.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a id={{skupina.id}} class="btn-table btn-delete" 
+                                type = 'button'
+                                data-toggle="modal"
+                                data-skupinaid = '{{ skupina.id }}' 
+                                data-skupinanaziv = '{{ skupina.naziv }}'
+                                data-target="#myModal">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.btn-delete').on("click", function (e) {
+                idskupine = $(this).data('skupinaid');
+                var action = '/sifranti/skupina_artikla_delete/' + idskupine + '/';
+                $("#myModal").data("skupinaid",idskupine);
+                $("#myModal .well").html("Brisem skupino artiklov " + $(this).data('skupinanaziv'));
+                $('#frm_delconfirm').attr('action', action);
+            });
+
+            }) //ready
+    </script>
+{% endblock main_content %}

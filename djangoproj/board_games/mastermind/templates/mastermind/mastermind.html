@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+{% load static %}
+{% load staticfiles %}
+
+<html>
+<head lang="en">
+<meta charset="UTF-8"/>
+<title>Master Mind</title>
+
+<link href="{% static 'css/_css/jquery-ui.min.css' %}" rel="stylesheet" media="screen">
+<link href="{% static 'css/mystyles.css' %}" rel="stylesheet" media="screen">
+
+<script src="{%  static "js/_js/jquery.min.js" %}"></script>
+<script src="{%  static "js/_js/jquery-ui.min.js" %}"></script>
+<script src="{%  static "js/moves.js" %}"></script>
+</head>
+
+
+<body>
+<div class='container'>
+    <h2>Play Master Mind</h2>
+
+    <div class='circles-panel'>
+        <div id='c1' class='circle'></div>
+        <div id='c2' class='circle'></div>
+        <div id='c3' class='circle'></div>
+        <div id='c4' class='circle'></div>
+        <div id='c5' class='circle'></div>
+        <div id='c6' class='circle'></div>
+    </div>
+    <div class="solution-panel">
+      <div id='r1c1' class="left-most row"></div>
+      <div id='r1c2' class="row"></div>
+      <div id='r1c3' class="row"></div>
+      <div id='r1c4' class="row"></div>
+      <div id='r1c5' class="hint">
+          <div>
+              <div id='hint1' class='small-circle'></div>
+              <div id='hint2' class='small-circle'></div>
+          </div>
+          <div>
+                  <div id='hint3' class='small-circle'></div>
+              <div id='hint4' class='small-circle'></div>
+          </div>
+      </div>
+
+      <div id='r2c1' class="left-most row"></div>
+      <div id='r2c2' class="row"></div>
+      <div id='r2c3' class="row"></div>
+      <div id='r2c4' class="row"></div>
+      <div id='r2c5' class="hint">
+          <div>
+              <div id='hint1' class='small-circle'></div>
+              <div id='hint2' class='small-circle'></div>
+          </div>
+          <div>
+              <div id='hint3' class='small-circle'></div>
+              <div id='hint4' class='small-circle'></div>
+          </div>
+      </div>
+
+      <div id='r3c1' class="left-most row"></div>
+      <div id='r3c2'  class="row"></div>
+      <div id='r3c3' class="row"></div>
+      <div id='r3c4' class="row"></div>
+      <div id='r3c5' class="hint">
+          <div>
+              <div id='hint1' class='small-circle'></div>
+              <div id='hint2' class='small-circle'></div>
+          </div>
+          <div>
+              <div id='hint3' class='small-circle'></div>
+              <div id='hint4' class='small-circle'></div>
+          </div>
+      </div>
+
+      <div id='r4c1' class="left-most row"></div>
+      <div id='r4c2' class="row"></div>
+      <div id='r4c3' class="row"></div>
+      <div id='r4c4' class="row"></div>
+      <div id='r4c5' class="hint">
+          <div>
+              <div id='hint1' class='small-circle'></div>
+              <div id='hint2' class='small-circle'></div>
+          </div>
+          <div>
+              <div id='hint3' class='small-circle'></div>
+              <div id='hint4' class='small-circle'></div>
+          </div>
+      </div>
+
+      <div id='r5c1' class="left-most row"></div>
+      <div id='r5c2' class="row"></div>
+      <div id='r5c3' class="row"></div>
+      <div id='r5c4' class="row"></div>
+      <div id='r5c5' class="hint">
+          <div>
+              <div id='hint1' class='small-circle'></div>
+              <div id='hint2' class='small-circle'></div>
+          </div>
+          <div>
+              <div id='hint3' class='small-circle'></div>
+              <div id='hint4' class='small-circle'></div>
+          </div>
+      </div>
+
+      <div id='r6c1' class="left-most row"></div>
+      <div id='r6c2' class="row"></div>
+      <div id='r6c3' class="row"></div>
+      <div id='r6c4' class="row"></div>
+      <div id='r6c5' class="hint">
+          <div>
+              <div id='hint1' class='small-circle'></div>
+              <div id='hint2' class='small-circle'></div>
+          </div>
+          <div>
+              <div id='hint3' class='small-circle'></div>
+              <div id='hint4' class='small-circle'></div>
+          </div>
+    </div>    
+    
+    <div id='r7c1' class="left-most row"></div>
+    <div id='r7c2' class="row"></div>
+    <div id='r7c3' class="row"></div>
+    <div id='r7c4' class="row"></div>
+    <div id='r7c5' class="hint">
+      <div>
+          <div id='hint1' class='small-circle'></div>
+          <div id='hint2' class='small-circle'></div>
+      </div>
+      <div>
+          <div id='hint3' class='small-circle'></div>
+          <div id='hint4' class='small-circle'></div>
+      </div>
+    </div>    
+
+    
+    <div id='r8c1' class="left-most row"></div>
+    <div id='r8c2' class="row"></div>
+    <div id='r8c3' class="row"></div>
+    <div id='r8c4' class="row"></div>
+    <div id='r8c5' class="hint">
+      <div>
+          <div id='hint1' class='small-circle'></div>
+          <div id='hint2' class='small-circle'></div>
+      </div>
+      <div>
+          <div id='hint3' class='small-circle'></div>
+          <div id='hint4' class='small-circle'></div>
+      </div>
+    </div>    
+    
+    <div class='rezult-panel'>
+        <input id='pb_solution' type='button' value='Show solution'/>
+        <a href="{% url 'index' %}">New game</a>
+        <div style='clear:both'>
+            </hr> 
+        </div>
+        <div class='puzzle-solution'>
+            <div id='solution1' class="left-most row" data-piece='{{piece1}}'>
+                <div id = '{{ piece1}}' class='circle solution-circle'></div>
+            </div>
+            <div id='solution2' class="row" data-piece='{{piece2}}'>
+                <div id = '{{ piece2}}' class='circle solution-circle'></div>
+            </div>
+            <div id='solution3' class="row" data-piece='{{piece3}}'>
+                <div id = '{{ piece3}}' class='circle solution-circle'></div>
+            </div>
+            <div id='solution4' class="row" data-piece='{{piece4}}'>
+                <div id = '{{ piece4}}' class='circle solution-circle'></div>
+            </div>
+        </div>
+    </div>
+ </div>    
+
+
+ </div>  <!--class=container -->
+</body>
+</html>
+
+

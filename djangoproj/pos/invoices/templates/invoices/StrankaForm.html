@@ -1,0 +1,12 @@
+{% extends "invoices/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main_content%}
+    <div class="container-fluid">
+    <div class="row">
+    <form class = "form-horizontal" method="post" action = "{{ action }}">
+        {% crispy form %}
+    </form>
+    </div>
+    </div>
+{% endblock main_content %}

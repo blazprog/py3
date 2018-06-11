@@ -1,0 +1,94 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+   <title>Cvetličarna prodaja</title>
+   <meta charset="UTF-8">
+   {% block page_styles %}
+   {% endblock page_styles %}
+
+   {% block page_scripts %}
+   {% endblock page_scripts %}
+
+   <style>
+      .pageWrapper {
+	     max-width: 1200px;
+	     margin: 0 auto;
+      }
+
+      header h1 {
+         text-align:center;
+      }
+     .sidebarLeft {
+         width:20%;
+         float: left;
+      }
+
+      .sidebarLeft li {
+	     padding: 0;
+	     margin: 0;
+	     list-style: none;
+}
+
+      article {
+         margin-left: 10px;
+         float:left;
+         width:70%;
+         padding: 20px;
+         border: solid;
+         border-width: medium;
+         margin-bottom: 20px;
+      }
+
+      footer {
+         margin-top: 20px;
+         clear:both;
+         background-color: black;  color: rgb(204,204,204);
+      }
+
+
+
+   </style>
+</head>
+
+<body>
+<div class="pageWrapper">
+   <header>
+   <h1>Cvetličarna - prodaja
+   </h1>
+   </header>
+
+   <div class="contentWrapper">
+      <aside class="sidebarLeft">
+         <ul>
+            <li><a href="{% url 'cvetlicarna:index' %}">Domov</a></li>
+            <li><a href="{% url 'cvetlicarna:seznam_racunov' %}">Izdaja računov</a></li>
+            <li><a href="{% url 'cvetlicarna:seznam_artiklov'%}">Artikli</a></li>
+            <li><a href="{% url 'cvetlicarna:seznam_strank' %}">Stranke</a></li>
+            <li>Tedenska prodaja</li>
+            <li>Poizvedbe</li>
+         </ul>
+      </aside>
+
+      <article class = "main">
+         {% block article_block %}
+         <h2>Article Title</h2>
+         <p>Suspendisse vitae quam lorem, in tempus velit. Sed vitae ante quis felis fringilla condimentum. Aenean orci ante, venenatis non adipiscing vitae, fringilla et neque. In pharetra, eros imperdiet luctus imperdiet, nunc sem pharetra mi, vel faucibus elit risus id tortor. Suspendisse vitae quam lorem, in tempus velit. Sed vitae ante quis felis fringilla condimentum.</p>
+         <p>Aenean orci ante, venenatis non adipiscing vitae, fringilla et neque. In pharetra, eros imperdiet luctus imperdiet, nunc sem pharetra mi, vel faucibus elit risus id tortor. </p>
+         <p>Suspendisse vitae quam lorem, in tempus velit. Sed vitae ante quis felis fringilla condimentum. Aenean orci ante, venenatis non adipiscing vitae, fringilla et neque. In pharetra, eros imperdiet luctus imperdiet, nunc sem pharetra mi, vel faucibus elit risus id tortor. Suspendisse vitae quam lorem, in tempus velit. Sed vitae ante quis felis fringilla condimentum. </p>
+         <h3>Subheading</h3>
+         <p>Suspendisse vitae quam lorem, in tempus velit. Sed vitae ante quis felis fringilla condimentum. Aenean orci ante, venenatis non adipiscing vitae, fringilla et neque. In pharetra, eros imperdiet luctus imperdiet, nunc sem pharetra mi, vel faucibus elit risus id tortor. Suspendisse vitae quam lorem, in tempus velit. Sed vitae ante quis felis fringilla condimentum. </p>
+         <h3>Subheading</h3>
+         <img src=<img src="/home/Slike/projektCvetlicarna/fikusBenjamin.jpg" width="400" height="300" alt="slika fikusa">
+         {% endblock article_block %}
+      </article> <!--main-->
+   </div> <!--contentWrapper-->
+   <footer>
+      Vse pravice ujete in pridržane za zaslišanje
+   </footer>
+
+</div> <!--pageWrapper-->
+
+</body>
+
+</html>

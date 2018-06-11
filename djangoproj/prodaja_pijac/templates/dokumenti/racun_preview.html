@@ -1,0 +1,91 @@
+{% extends "common/base.html" %}
+
+{% block main_content%}
+<div class='container'>
+    <div class='invoice-logo panel panel-default'>
+        <div class='panel-heading'><h3 class='panel-title'>My Shanny Company</h3></div>
+    </div>
+    <div class='invoice-head'>
+        <dl class='left table-display'>
+            <dt>Stevilka racuna</dt><dd> {{racun.stevilka}}</dd>
+            <dt>Datum racuna</dt><dd>{{racun.datum_izdaje|date:"d.m.Y"}}</dd>
+            <dt>Datum storitve</dt><dd>{{racun.datum_storitve|date:"d.m.Y"}}</dd>
+            <dt>Datum valute</dt><dd>{{racun.datum_valute|date:"d.m.Y"}}</dd>
+        </dl>
+        <dl class='right stranka table-display'>
+            <dt>Stranka</dt> <dd>{{ racun.stranka.sifra}}</dd>
+            <dt></dt> <dd>{{ racun.stranka.naziv}}</dd>
+            <dt></dt> <dd>{{ racun.stranka.ulica}}</dd>
+            <dt></dt> <dd>{{ racun.stranka.posta}}</dd>
+            <dt></dt> <dd>{{ racun.stranka.kraj}}</dd>
+        </dl>
+    </div>
+    <div class='invoice-details'>
+        <table id='nakup-pozicije' class = "table table-stripped table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th class='izdelek'>Izdelek</th>
+                <th class='kolicina'>Količina</th>
+                <th class='cena'>Cena</th>
+                <th class='davek'>Davek</th>
+                <th class='popust'>Popust</th>
+                <th class='skupaj'>Skupaj</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for racun_pozicija in racun_pozicije %}
+                 <tr>
+                    <td class='artikel'> {{ racun_pozicija.artikel }} </td>
+                    <td class='kolicina'> {{ racun_pozicija.kolicina }} </td>
+                    <td class='cena'> {{racun_pozicija.cena|floatformat:2 }} </td>
+                    <td class='davek'> {{racun_pozicija.davek|floatformat:2 }} </td>
+                    <td class='popust'> {{racun_pozicija.popust|floatformat:2 }} </td>
+                    <td class='skupaj'>{{racun_pozicija.skupaj|floatformat:2 }} </td>
+                </tr>
+            {% endfor %}
+            <!--rekapitulacija racun-->
+            <tr class=rekapitulacija>
+                <td colspan='5'>Osnova za davek</td>
+                <td class='skupaj'>{{rekapitulacija.skupajBrezDavka|floatformat:2 }}</td>
+            </tr>
+            <tr class=rekapitulacija>
+                <td colspan='5'>Vrednost davka</td>
+                <td class='skupaj'>{{rekapitulacija.skupajDavki|floatformat:2 }}</td>
+            </tr>
+            <tr class=rekapitulacija>
+                <td colspan='5' class='artikel'>Skupni znesek</td>
+                <td class='skupaj'>{{rekapitulacija.skupniZnesek|floatformat:2}}</td>
+            </tr>
+            <!--konec rekapitulacije racuna -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Rekapiulacija davkov -->
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4 class='panel-title'>Rekapitulacija davkov<h4></div>
+
+      <table class="table">
+          <thead>
+             <tr>
+                 <th>Stopnja davka</th>
+                 <th>Znesek davka</th>
+             </tr>
+          </thead>
+          <tbody>
+            {% for key, value in rekapitulacija.davki.items %}
+                <tr>
+                    <td>{{key|floatformat:2}}</td>
+                    <td>{{value|floatformat:2}}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+  </div> <!-- panel panel default -->
+  <!-- Konec rekapiulacija davkov -->
+
+<div class='invoice-terms'>
+</div>
+
+</div>  <!--class='container'-->
+{% endblock main_content %}

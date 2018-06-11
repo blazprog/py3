@@ -1,0 +1,32 @@
+/* css-framework documentation styles
+--------------------------------------- */
+
+body				{ padding: 50px 0 0 0; }
+section.g-row		{ padding: 50px 0 0 0; }
+
+/* Teaser
+--------------------------------------- */
+.f-teaser			{ margin: 0 0 40px 0; }
+.f-teaser-download	{ float: right; margin: 8px 0 0; }
+.f-teaser h1		{ font-size: 40px; font-weight: normal; }
+.f-teaser h2		{ font-weight: normal; }
+
+/* Logo
+--------------------------------------- */
+.logo				{  }
+.logo-c				{ color: #cb4b16; }
+.logo-				{ color: #888; }
+.logo-f				{ color: #268bd2; }
+
+/* Grid demo
+--------------------------------------- */
+.grid-demo > [class ^= "g-"]				{ text-align: center; background: #eee; line-height: 27px; border-radius: 3px; }
+.grid-demo .grid-demo > [class ^= "g-"]		{ background: #e2e2e2; }
+.grid-demo code								{ border: none; background: none; }
+
+/* Columns demo
+--------------------------------------- */
+.f-demo .f-column							{ background: #eee; position: relative; overflow: hidden; }
+.f-demo .f-column p							{ padding: 5px 10px; margin-bottom: 0; }
+.f-demo .f-column:after						{ left: 0; top: 0; width: 10px; bottom: 0; content: ''; background: #ccc; position: absolute; display: block; }
+.f-demo .f-column:first-child:after			{ left: auto; right: 0; border: none; }

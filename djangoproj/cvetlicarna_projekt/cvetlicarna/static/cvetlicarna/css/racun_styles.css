@@ -1,0 +1,41 @@
+.racun_postavke {
+    border: solid;
+    border-width: 1px;
+    border-spacing: 0px;
+    margin-bottom: 12px;
+    table-layout: fixed;
+}
+
+.pozicija {
+    width: 4em;
+}
+
+.ddv, .em  {
+    width: 5em;
+}
+
+.kolicina, .cena, .popust {
+    width: 6em;
+
+}
+
+.artikel  {
+    width:20em;
+}
+
+.racun_postavke td input, .racun_postavke td select {
+    width: 100%;
+    border-width: 1px;
+}
+
+.racun_postavke th, .racun_postavke td {
+    padding: 5px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.sifraArtikla  {
+    background-color: lightsteelblue;
+}
+
+

@@ -1,0 +1,23 @@
+{% extends "lab/base.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{% block main_content %}
+<h1>Zgodovina naših nakupov</h1>
+<table class="table">
+    {% for shopping in shopping_history %}
+        <tr>
+            <td>{{shopping.trgovina}}</td>
+            <td>{{shopping.datum_nakupa}}</td>
+            <td><a href="{% url 'nakup' nakup_id=shopping.id %}">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+<script src="{%  static "formset_management.js" %}"></script>
+
+{% endblock main_content %}

@@ -1,0 +1,54 @@
+input.exercise {
+    font-weight: normal;
+    font-size: 16px;
+    color: blue;
+}
+
+label.exercise {
+    font-weight: normal;
+}
+
+.correct_answer {
+    color: darkgreen;
+}
+
+.incorrect_answer {
+    color: blue;
+    text-decoration: line-through;
+}
+
+.solution {
+    color: red;
+}
+
+#table_list th, #table_list td {
+     border-top: none
+ }
+
+.logo-picture {
+    font-size: 42px;
+    margin-top: -10px;
+}
+
+.logo-text {
+    font-size: 34px;
+    }
+
+.exercise_solve_link {
+    text-decoration: None;
+    color: inherit;
+}
+
+.exercise_solve_link:hover {
+    text-decoration: None;
+    color: inherit;
+    background: lightgray;
+    font-weight: bold;
+}
+
+.question,
+.incorrect_answer,
+.correct_answer,
+.solution {
+    font-size: 16px;
+}

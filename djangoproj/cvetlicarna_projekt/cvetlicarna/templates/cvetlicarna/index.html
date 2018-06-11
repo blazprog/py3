@@ -1,0 +1,46 @@
+{% extends "cvetlicarna/base.html" %}
+{% load staticfiles %}
+{% block page_styles %}
+<link rel="stylesheet" type="text/css"
+      href="{% static 'cvetlicarna/css/index.css' %}" />
+{% endblock page_styles %}
+
+
+{% block article_block %}
+    <h2>Cvetličarna Home Page</h2>
+    <p>Aplikacija, ki podpira prodajo storite v Cvetličarni</p>
+
+    <table>
+        <caption align="top">
+        Table 1: CosmoFarmer.com's Indoor Mower Roundup
+        </caption>
+        <colgroup>
+            <col class="brand" />
+            <col class="price" />
+            <col class="power" />
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Price</th>
+            <th scope="col">Power Source</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Chinook Push-o-matic Indoor Mower</td>
+            <td>$247.00</td>
+            <td>Mechanical</td>
+        </tr>
+        <tr>
+            <td>Sampson Deluxe Apartment Mower</td>
+            <td>$270.00</td>
+            <td>Mechanical</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+{% endblock article_block %}

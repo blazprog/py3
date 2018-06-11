@@ -1,0 +1,59 @@
+
+{% extends "invoices/base.html" %}
+{% block main_content%}
+    <div class='invoice-logo'>
+        <h2>My Shanny Company</h2>
+    </div>
+    <div class='invoice-head'>
+        <dl class='left table-display'>
+            <dt>Stevilka racuna</dt><dd> {{racun.stevilka}}</dd>
+            <dt>Datum racuna</dt><dd>{{racun.datum_izdaje|date:"d.m.Y"}}</dd>
+            <dt>Datum storitve</dt><dd>{{racun.datum_storitve|date:"d.m.Y"}}</dd>
+            <dt>Datum valute</dt><dd>{{racun.datum_valute|date:"d.m.Y"}}</dd>
+        </dl>
+        <dl class='right table-display'>
+            <dt>Stranka</dt> <dd>{{ racun.stranka}}</dd>
+        </dl>
+    </div>
+    <div class='invoice-details'>
+        <table id='nakup-pozicije' class = "table table-stripped table-bordered">
+            <thead>
+            <tr>
+                <th class='izdelek'>Izdelek</th>
+                <th class='kolicina'>Količina</th>
+                <th class='cena'>Cena</th>
+                <th class='davek'>Davek</th>
+                <th class='popust'>Popust</th>
+                <th class='skupaj'>Skupaj</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for racun_pozicija in racun_pozicije %}
+                 <tr>
+                    <td class='artikel'> {{ racun_pozicija.artikel }} </td>
+                    <td class='kolicina'> {{ racun_pozicija.kolicina }} </td>
+                    <td class='cena'> {{racun_pozicija.cena|floatformat:2 }} </td>
+                    <td class='davek'> {{racun_pozicija.davek|floatformat:2 }} </td>
+                    <td class='popust'> {{racun_pozicija.popust|floatformat:2 }} </td>
+                    <td class='skupaj'>{{racun_pozicija.skupaj|floatformat:2 }} </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class='invoice-totals'>
+        <dl class='left table-display'>
+            <dt>Osnova za davek</dt><dd> {{rekapitulacija.skupajBrezDavka|floatformat:2 }}</dd>
+            <dt>Vrednost davka</dt><dd>{{rekapitulacija.skupajDavki|floatformat:2 }}</dd>
+            <dt>Skupni znesek</dt><dd>{{rekapitulacija.skupniZnesek|floatformat:2}}</dd>
+        </dl>
+        <dl class='right table-display'>
+            {% for key, value in rekapitulacija.davki.items %}
+                <dt>Stopnja davka {{key|floatformat:2}}</dt><dd>Vrednost davka {{value|floatformat:2}}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+    <div class='invoice-terms'>
+    </div>
+
+{% endblock main_content %}

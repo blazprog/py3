@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load  mytags %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>List of exercises</title>
+    <link rel="stylesheet" type="text/css"
+      href="{% static 'exercises/main_styles.css' %}" />
+
+    <style>
+        {% block page_styles%}
+
+        {% endblock page_styles %}
+
+    </style>
+</head>
+<body>
+
+    <header>
+    {% block header %}
+    {% if language %}
+        <h1>VAJE IZ {{ language.description }}</h1>
+        <div class="main_links">
+            <ul class="nav">
+                <li><a href="{% url 'select_language' %}">Domov</a></li>
+                <li><a href="#">Prijava</a></li>
+                <li><a href="#">Registracija</a></li>
+            </ul>
+        </div> <!-main_links->
+    {% else %}
+        <h1>VAJE IZ SLOVNICE</h1>
+    {% endif %}
+    {% endblock header %}
+    </header>
+
+    {% block sidenav %}
+        <nav>
+            {% get_subject_list language %}
+        </nav>
+    {% endblock sidenav %}
+
+    <div class="main_content">
+    {% block main_content %}
+    {% endblock main_content %}
+    </div>
+
+    {% block footer %}
+    {% endblock footer %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "myforms/base.html" %}
+{% block main_content %}
+    <h1>Enter Contact Information</h1>
+    <form action="{% url 'get_contact' %}" method="post">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+                {{form.language.label_tag }} {{ form.language }}
+                {{form.subject.label_tag }} {{ form.subject }}
+        </div>
+        <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+        </div>
+        <div class="form-row">
+            {{ form.exercise.label_tag }}
+        </div>
+        <div class="form-row">
+            {{ form.exercise }}
+        </div>
+
+        <div class="form-row">
+        <input class="submit" type="submit" value="{{ save }}"/>
+        </div>
+
+    </form>
+{% endblock main_content %}

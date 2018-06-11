@@ -1,0 +1,15 @@
+{% extends "invoices/base.html" %}
+
+{% block main_content%}
+    <div class="container-fluid">
+    <div class="row">
+    <form class = "form-horizontal" method="post" action = "{{ action }}">
+        <div class="well">
+            Brisem {{ stranka}} ?
+        </div>
+        <input type="submit" value="Yes, delete." />
+        <a href="{% url "contacts-list" %}">No, cancel.</a>        
+    </form>
+    </div>
+    </div>
+{% endblock main_content %}

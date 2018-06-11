@@ -1,0 +1,32 @@
+
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+
+{% block main_content %}
+
+    <h2>
+        Here are the results of {{ exercise_name }}
+    </h2>
+    <ol>
+        {% for line in exercise_parts %}
+                <li>
+                    {%  for part in line %}
+                        {% if part.partType == part.QUESTION_PART %}
+                            <span class="question">{{ part.text }}</span>
+                        {% else %}
+                            {% if part.text == part.userAnswer %}
+                                <span class="correct_answer">{{ part.userAnswer }}</span>
+                            {% else %}
+                                <span class="incorrect_answer">{{ part.userAnswer }}</span>
+                                <span class="solution">{{ part.text }}</span>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+        {% endfor %}
+    </ol>
+    <a class="button"
+    href =" {% url  'exercise_solve' pk=exercise_id  language=language.language %}">
+    Nazja na vajo
+    </a>
+{% endblock main_content %}

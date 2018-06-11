@@ -1,0 +1,36 @@
+<table class="table table-striped" style="width:auto">
+    <caption>
+    Rezultat iskanja
+    </caption>
+    <thead>
+        <tr>
+        <tr>
+            <th>Šifra</th>
+            <th>Naziv</th>
+            <th>Skupina</th>
+            <th>Em</th>
+            <th>Cena</th>
+    </thead>
+    {% for artikel in context_list %}
+        <tr class="artikel_data">
+            <td>{{ artikel.sifra }}</td>
+            <td>{{ artikel.naziv }}</td>
+            <td>{{ artikel.skupina }}</td>
+            <td>{{ artikel.em }}</td>
+            <td>{{ artikel.cena }}</td>
+            <td><button id="{{ forloop.counter }}"
+                class="btn btn-sm btn-success
+                btn_izberi_artikel" 
+                data-artikel_id="{{ artikel.id }}"
+                data-artikel_sifra="{{ artikel.sifra}}">
+                Izberi
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<script>
+    $(".btn_izberi_artikel").on('click', confirm_ModalArtikel);
+</script>
+

@@ -1,0 +1,222 @@
+djangoproj/wsgi.py:from django.core.wsgi import get_wsgi_application
+djangoproj/urls.py:from django.conf.urls import patterns, include, url
+djangoproj/urls.py:from django.contrib import admin
+manage.py:    from django.core.management import execute_from_command_line
+kviz/manage.py:    from django.core.management import execute_from_command_line
+kviz/kviz/wsgi.py:from django.core.wsgi import get_wsgi_application
+kviz/kviz/urls.py:from django.conf.urls import patterns, include, url
+kviz/kviz/urls.py:from django.contrib import admin
+pos/manage.py:    from django.core.management import execute_from_command_line
+pos/pos/wsgi.py:from django.core.wsgi import get_wsgi_application
+pos/pos/urls.py:from django.conf.urls import patterns, include, url
+pos/pos/urls.py:from django.contrib import admin
+pos/invoices/tests.py:from django.test import TestCase
+pos/invoices/models.py:from django.db import models
+pos/invoices/admin.py:from django.contrib import admin
+pos/invoices/forms.py:from django.forms.models import formset_factory
+pos/invoices/forms.py:from django.core.urlresolvers import reverse
+pos/invoices/forms.py:from django.forms import ModelForm, CharField, TextInput
+pos/invoices/urls.py:from django.conf.urls import patterns, include, url
+pos/invoices/views.py:from django.shortcuts import render, get_object_or_404, render_to_response
+pos/invoices/views.py:from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+pos/invoices/views.py:from django.core.urlresolvers import reverse
+pos/invoices/views.py:from django.views.generic import View, ListView, UpdateView, CreateView
+pos/invoices/migrations/0005_counter.py:from django.db import models, migrations
+pos/invoices/migrations/0003_skupinaartikla.py:from django.db import models, migrations
+pos/invoices/migrations/0002_auto_20150529_2148.py:from django.db import models, migrations
+pos/invoices/migrations/0001_initial.py:from django.db import models, migrations
+pos/invoices/migrations/0004_artikel_skupina.py:from django.db import models, migrations
+jqfs/demo/manage.py:    from django.core.management import execute_from_command_line
+jqfs/demo/example/models.py:from django.db import models
+jqfs/demo/example/models.py:from django.template.defaultfilters import pluralize
+jqfs/demo/example/forms.py:from django import forms
+jqfs/demo/example/forms.py:from django.forms import fields, models, formsets, widgets
+jqfs/demo/example/forms.py:from django.contrib.admin.widgets import AdminDateWidget
+jqfs/demo/example/forms.py:from django.conf import settings
+jqfs/demo/example/urls.py:from django.conf.urls import patterns, url, include
+jqfs/demo/example/views.py:from django.http import HttpResponse
+jqfs/demo/example/views.py:from django.shortcuts import render_to_response, redirect
+jqfs/demo/example/views.py:from django.template.context import RequestContext
+jqfs/demo/urls.py:from django.conf import settings
+jqfs/demo/urls.py:from django.contrib import admin
+jqfs/demo/urls.py:from django.views.generic import TemplateView
+jqfs/demo/urls.py:from django.conf.urls import patterns, url, include
+exercises_project nova kopija/manage.py:    from django.core.management import execute_from_command_line
+exercises_project nova kopija/exercises/tests.py:from django.test import TestCase
+exercises_project nova kopija/exercises/models.py:from django.db import models
+exercises_project nova kopija/exercises/templatetags/mytags.py:from django import template
+exercises_project nova kopija/exercises/admin.py:from django.contrib import admin
+exercises_project nova kopija/exercises/admin.py:from django.contrib import admin
+exercises_project nova kopija/exercises/urls.py:from django.conf.urls import patterns, include, url
+exercises_project nova kopija/exercises/views.py:from django.shortcuts import render, get_object_or_404
+exercises_project nova kopija/exercises/views.py:from django.core.urlresolvers import reverse
+exercises_project nova kopija/exercises/views.py:#from django.http import HttpResponse
+exercises_project nova kopija/exercises/views.py:from django.views.generic import View, ListView, DetailView, UpdateView, CreateView
+exercises_project nova kopija/exercises/migrations/0001_initial.py:from django.db import models, migrations
+exercises_project nova kopija/exercises/migrations/0004_auto_20150129_1234.py:from django.db import models, migrations
+exercises_project nova kopija/exercises/migrations/0003_language_subject.py:from django.db import models, migrations
+exercises_project nova kopija/exercises/migrations/0002_auto_20150128_1024.py:from django.db import models, migrations
+exercises_project nova kopija/exercises_project/wsgi.py:from django.core.wsgi import get_wsgi_application
+exercises_project nova kopija/exercises_project/urls.py:from django.conf.urls import patterns, include, url
+exercises_project nova kopija/exercises_project/urls.py:from django.contrib import admin
+exercises_project (kopija)/manage.py:    from django.core.management import execute_from_command_line
+exercises_project (kopija)/exercises/tests.py:from django.test import TestCase
+exercises_project (kopija)/exercises/models.py:from django.db import models
+exercises_project (kopija)/exercises/templatetags/mytags.py:from django import template
+exercises_project (kopija)/exercises/admin.py:from django.contrib import admin
+exercises_project (kopija)/exercises/admin.py:from django.contrib import admin
+exercises_project (kopija)/exercises/urls.py:from django.conf.urls import patterns, include, url
+exercises_project (kopija)/exercises/views.py:from django.shortcuts import render, get_object_or_404
+exercises_project (kopija)/exercises/views.py:from django.core.urlresolvers import reverse
+exercises_project (kopija)/exercises/views.py:#from django.http import HttpResponse
+exercises_project (kopija)/exercises/views.py:from django.views.generic import View, ListView, DetailView, UpdateView, CreateView
+exercises_project (kopija)/exercises/migrations/0001_initial.py:from django.db import models, migrations
+exercises_project (kopija)/exercises/migrations/0004_auto_20150129_1234.py:from django.db import models, migrations
+exercises_project (kopija)/exercises/migrations/0003_language_subject.py:from django.db import models, migrations
+exercises_project (kopija)/exercises/migrations/0002_auto_20150128_1024.py:from django.db import models, migrations
+exercises_project (kopija)/exercises_project/wsgi.py:from django.core.wsgi import get_wsgi_application
+exercises_project (kopija)/exercises_project/urls.py:from django.conf.urls import patterns, include, url
+exercises_project (kopija)/exercises_project/urls.py:from django.contrib import admin
+besede_project/manage.py:    from django.core.management import execute_from_command_line
+besede_project/besede/tests.py:from django.test import TestCase
+besede_project/besede/models.py:from django.db import models
+besede_project/besede/admin.py:from django.contrib import admin
+besede_project/besede/urls.py:from django.conf.urls import patterns, include, url
+besede_project/besede/views.py:from django.shortcuts import render
+besede_project/besede/views.py:from django.http import HttpResponse
+besede_project/besede/migrations/0001_initial.py:from django.db import models, migrations
+besede_project/besede_project/wsgi.py:from django.core.wsgi import get_wsgi_application
+besede_project/besede_project/urls.py:from django.conf.urls import patterns, include, url
+besede_project/besede_project/urls.py:from django.contrib import admin
+forms_lab/manage.py:    from django.core.management import execute_from_command_line
+forms_lab/forms_lab/wsgi.py:from django.core.wsgi import get_wsgi_application
+forms_lab/forms_lab/urls.py:from django.conf.urls import patterns, include, url
+forms_lab/forms_lab/urls.py:from django.contrib import admin
+forms_lab/lab/tests.py:from django.test import TestCase
+forms_lab/lab/models.py:from django.db import models
+forms_lab/lab/admin.py:from django.contrib import admin
+forms_lab/lab/forms.py:from django import forms
+forms_lab/lab/forms.py:from django.forms.formsets import  formset_factory
+forms_lab/lab/forms.py:from django.forms.models import modelformset_factory,inlineformset_factory
+forms_lab/lab/urls.py:from django.conf.urls import patterns, include, url
+forms_lab/lab/views.py:from django.shortcuts import render, get_object_or_404
+forms_lab/lab/views.py:#from django.views.generic import View, ListView, UpdateView, CreateView
+forms_lab/lab/views.py:from django.views.generic import View, TemplateView, ListView
+forms_lab/lab/views.py:from django.core.urlresolvers import reverse
+forms_lab/lab/views.py:from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+forms_lab/lab/migrations/0001_initial.py:from django.db import models, migrations
+exercises_project/manage.py:    from django.core.management import execute_from_command_line
+exercises_project/exercises/tests.py:from django.test import TestCase
+exercises_project/exercises/models.py:from django.db import models
+exercises_project/exercises/templatetags/mytags.py:from django import template
+exercises_project/exercises/admin.py:from django.contrib import admin
+exercises_project/exercises/admin.py:from django.contrib import admin
+exercises_project/exercises/forms.py:from django import forms
+exercises_project/exercises/forms.py:from django.contrib.auth.models import User
+exercises_project/exercises/urls.py:from django.conf.urls import patterns, include, url
+exercises_project/exercises/urls.py:from django.contrib import admin
+exercises_project/exercises/views.py:from django.shortcuts import render, get_object_or_404
+exercises_project/exercises/views.py:from django.core.urlresolvers import reverse
+exercises_project/exercises/views.py:#from django.http import HttpResponse
+exercises_project/exercises/views.py:from django.views.generic import View, ListView, DetailView, UpdateView, CreateView
+exercises_project/exercises/migrations/0001_initial.py:from django.db import models, migrations
+exercises_project/exercises/migrations/0004_auto_20150129_1234.py:from django.db import models, migrations
+exercises_project/exercises/migrations/0003_language_subject.py:from django.db import models, migrations
+exercises_project/exercises/migrations/0002_auto_20150128_1024.py:from django.db import models, migrations
+exercises_project/exercises_project/wsgi.py:from django.core.wsgi import get_wsgi_application
+exercises_project/exercises_project/urls.py:from django.conf.urls import patterns, include, url
+exercises_project/exercises_project/urls.py:from django.contrib import admin
+cvetlicarna_projekt/manage.py:    from django.core.management import execute_from_command_line
+cvetlicarna_projekt/cvetlicarna_projekt/wsgi.py:from django.core.wsgi import get_wsgi_application
+cvetlicarna_projekt/cvetlicarna_projekt/urls.py:from django.conf.urls import patterns, include, url
+cvetlicarna_projekt/cvetlicarna_projekt/urls.py:from django.contrib import admin
+cvetlicarna_projekt/cvetlicarna/tests.py:from django.test import TestCase
+cvetlicarna_projekt/cvetlicarna/models.py:from django.db import models
+cvetlicarna_projekt/cvetlicarna/admin.py:from django.contrib import admin
+cvetlicarna_projekt/cvetlicarna/forms.py:from django.forms import ModelForm, TextInput, Select
+cvetlicarna_projekt/cvetlicarna/forms.py:from django.forms.models import inlineformset_factory
+cvetlicarna_projekt/cvetlicarna/urls.py:from django.conf.urls import patterns, include, url
+cvetlicarna_projekt/cvetlicarna/views.py:from django.shortcuts import render
+cvetlicarna_projekt/cvetlicarna/views.py:from django.http import HttpResponse,HttpResponseRedirect, JsonResponse
+cvetlicarna_projekt/cvetlicarna/views.py:from django.core.urlresolvers import reverse
+cvetlicarna_projekt/cvetlicarna/views.py:from django.views.generic import ListView, UpdateView
+cvetlicarna_projekt/cvetlicarna/migrations/0004_racun_racunpostavka.py:from django.db import models, migrations
+cvetlicarna_projekt/cvetlicarna/migrations/0003_auto_20150112_1241.py:from django.db import models, migrations
+cvetlicarna_projekt/cvetlicarna/migrations/0001_initial.py:from django.db import models, migrations
+cvetlicarna_projekt/cvetlicarna/migrations/0002_ddv_stopnja.py:from django.db import models, migrations
+cvetlicarna_projekt/cvetlicarna/migrations/0005_auto_20150121_1614.py:from django.db import models, migrations
+vaje_forms/manage.py:    from django.core.management import execute_from_command_line
+vaje_forms/myforms/tests.py:from django.test import TestCase
+vaje_forms/myforms/models.py:from django.db import models
+vaje_forms/myforms/models.py:from django.contrib.auth.models import User
+vaje_forms/myforms/admin.py:from django.contrib import admin
+vaje_forms/myforms/forms.py:from django import forms
+vaje_forms/myforms/urls.py:from django.conf.urls import patterns, include, url
+vaje_forms/myforms/views.py:from django.shortcuts import render, get_object_or_404
+vaje_forms/myforms/views.py:from django.views.generic import View, ListView, UpdateView, CreateView
+vaje_forms/myforms/views.py:from django.core.urlresolvers import reverse
+vaje_forms/myforms/views.py:from django.http import HttpResponse, HttpResponseRedirect
+vaje_forms/myforms/views.py:from django.contrib.auth import authenticate, login, logout
+vaje_forms/myforms/views.py:from django.contrib.auth.decorators import login_required
+vaje_forms/myforms/views.py:from django.forms.models import formset_factory
+vaje_forms/myforms/migrations/0003_subject_group.py:from django.db import models, migrations
+vaje_forms/myforms/migrations/0002_userprofile.py:from django.db import models, migrations
+vaje_forms/myforms/migrations/0002_userprofile.py:from django.conf import settings
+vaje_forms/myforms/migrations/0001_initial.py:from django.db import models, migrations
+vaje_forms/vaje_forms/wsgi.py:from django.core.wsgi import get_wsgi_application
+vaje_forms/vaje_forms/urls.py:from django.conf.urls import patterns, include, url
+vaje_forms/vaje_forms/urls.py:from django.contrib import admin
+vaje_forms/vaje_forms/views.py:from django.http import HttpResponse, HttpResponseRedirect
+vaje_forms/vaje_forms/views.py:from django.shortcuts import render
+untitled/manage.py:    from django.core.management import execute_from_command_line
+untitled/pos/tests.py:from django.test import TestCase
+untitled/pos/models.py:from django.db import models
+untitled/pos/admin.py:from django.contrib import admin
+untitled/pos/views.py:from django.shortcuts import render
+untitled/untitled/wsgi.py:from django.core.wsgi import get_wsgi_application
+untitled/untitled/urls.py:from django.conf.urls import patterns, include, url
+untitled/untitled/urls.py:from django.contrib import admin
+sample_forms/slike/tests.py:from django.test import TestCase
+sample_forms/slike/models.py:from django.db import models
+sample_forms/slike/admin.py:from django.contrib import admin
+sample_forms/slike/forms.py:from django import forms
+sample_forms/slike/urls.py:from django.conf.urls import patterns, url
+sample_forms/slike/views.py:from django.shortcuts import render
+sample_forms/slike/views.py:from django.http import HttpResponse, HttpResponseRedirect
+sample_forms/slike/views.py:from django.core.urlresolvers import reverse
+sample_forms/slike/migrations/0001_initial.py:from django.db import models, migrations
+sample_forms/manage.py:    from django.core.management import execute_from_command_line
+sample_forms/words/tests.py:from django.test import TestCase
+sample_forms/words/models.py:from django.db import models
+sample_forms/words/admin.py:from django.contrib import admin
+sample_forms/words/forms.py:from django.forms import ModelForm
+sample_forms/words/urls.py:from django.conf.urls import patterns, url
+sample_forms/words/views.py:from django.shortcuts import render
+sample_forms/words/views.py:from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+sample_forms/words/views.py:from django.core.urlresolvers import reverse
+sample_forms/words/migrations/0001_initial.py:from django.db import models, migrations
+sample_forms/books/tests.py:from django.test import TestCase
+sample_forms/books/models.py:from django.db import models
+sample_forms/books/admin.py:from django.contrib import admin
+sample_forms/books/forms.py:from django import forms
+sample_forms/books/urls.py:from django.conf.urls import patterns, url
+sample_forms/books/views.py:from django.shortcuts import render, render_to_response
+sample_forms/books/views.py:from django.http import HttpResponse, HttpResponseRedirect
+sample_forms/books/views.py:from django.core.urlresolvers import reverse
+sample_forms/recipes/tests.py:from django.test import TestCase
+sample_forms/recipes/models.py:from django.db import models
+sample_forms/recipes/admin.py:from django.contrib import admin
+sample_forms/recipes/forms.py:from django import forms
+sample_forms/recipes/forms.py:from django.forms.models import inlineformset_factory
+sample_forms/recipes/urls.py:from django.conf.urls import patterns, url
+sample_forms/recipes/views.py:from django.shortcuts import render
+sample_forms/recipes/views.py:from django.template import RequestContext
+sample_forms/recipes/views.py:from django.http import HttpResponseRedirect, HttpResponse
+sample_forms/recipes/views.py:from django.shortcuts import render_to_response
+sample_forms/recipes/views.py:from django.core.urlresolvers import reverse
+sample_forms/recipes/migrations/0001_initial.py:from django.db import models, migrations
+sample_forms/recipes/migrations/0002_auto_20150110_1711.py:from django.db import models, migrations
+sample_forms/sample_forms/wsgi.py:from django.core.wsgi import get_wsgi_application
+sample_forms/sample_forms/urls.py:from django.conf.urls import patterns, include, url
+sample_forms/sample_forms/urls.py:from django.contrib import admin
+sample_forms/sample_forms/urls.py:from django.conf import settings

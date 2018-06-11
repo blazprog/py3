@@ -1,0 +1,72 @@
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{%  block page_styles %}
+    textarea {
+        width: 800px;
+        height: 400px;
+        border: 3px solid #cccccc;
+	    padding: 5px;
+	    font-family: Tahoma, sans-serif;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    input, select {
+        font-size: 18px;
+    }
+
+    .submit-button {
+        text-align:right;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    tr {
+        line-height: 15px;
+    }
+
+    .top_fields, .exercise_name, .exercise_label {
+        margin-bottom: 10px;
+        font-family: Tahoma, sans-serif;
+
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: blue;
+    }
+
+
+{%  endblock page_styles %}
+
+{% block main_content %}
+    <div class="container">
+    <h2>Vnesi novo vajo</h2>
+    </div>
+    <div>
+    <form action="{{ action }}" method="post">
+        {% csrf_token %}
+            <div class="top_fields">
+                {{form.language.label_tag }} {{ form.language }}
+                {{form.subject.label_tag }} {{ form.subject }}
+            </div>
+            <div class="exercise_name">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+            </div>
+            <div class="exercise_label">
+                {{ form.exercise.label_tag }}
+            </div>
+            <div class="exercise_text">
+                {{ form.exercise }}
+            </div>
+        <div class="submit-button">
+        <input class="submit" type="submit" value="Save"/>
+        </div>
+    </form>
+    </div>
+{% endblock main_content %}

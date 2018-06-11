@@ -1,0 +1,29 @@
+thead {
+    color: gold;
+    background-color: lavender;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+table {
+    margin-top: 30px;
+    border: 1px solid;
+    border-bottom: 2px double;
+    border-spacing: 0px;
+    width:100%;
+}
+
+table caption {
+    padding-bottom: 10px;
+}
+
+.brand {
+    width:170px;
+}
+
+.price {
+    width:60px;
+}

@@ -1,0 +1,110 @@
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block page_styles %}
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    form    {
+        margin:auto;
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+        text-decoration: none;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        padding:10px;
+        border: 1px solid #999;
+        border: inset 1px solid #333;
+
+    }
+
+    /* Button Style */
+    input.submit {
+        background-color: #68b12f;
+        background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+        background: -webkit-linear-gradient(top, #68b12f, #50911e);
+        background: -moz-linear-gradient(top, #68b12f, #50911e);
+        background: -ms-linear-gradient(top, #68b12f, #50911e);
+        background: -o-linear-gradient(top, #68b12f, #50911e);
+        background: linear-gradient(top, #68b12f, #50911e);
+        border: 1px solid #509111;
+        border-bottom: 1px solid #5b992b;
+        border-radius: 10px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        box-shadow: inset 0 1px 0 0 #9fd574;
+        -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+        -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+        -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+        -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+        color: white;
+        font-weight: bold;
+        padding: 6px 20px;
+        text-align: center;
+        text-shadow: 0 -1px 0 #396715;
+    }
+
+    ol {
+        border-bottom: 1px dashed #000;
+        margin-bottom: 5px;
+    }
+
+    .container {
+        width:100%;
+    }
+
+    input {
+        font-size: 16;
+        padding-left: 6px;
+    }
+
+{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+    <h2>
+        {{ exercise_name }}
+    </h2>
+    </div>
+    <div>
+        <form class="exercises_form" name="exercises" action="{{ action }}" method="POST">
+        {% csrf_token %}
+        <ol>
+        {% for line in exercise_parts %}
+                <li>
+                    {%  for part in line %}
+                        {% if part.partType == part.QUESTION_PART %}
+                            <label>{{ part.text }}</label>
+                        {% else %}
+                            {% if part.hint %}
+                                <input
+                                        name="{{ part.partName }}"
+                                        type="text"
+                                        size = "{{ part.input_size }}"
+                                        placeholder="{{ part.hint }}"/>
+                            {%  else %}
+                                <input name="{{ part.partName }}"
+                                       type="text"
+                                       size = "{{ part.input_size }}"/>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ol>
+
+
+        <input class="submit" type="submit" value="Check">
+        </form>
+    </div>
+{% endblock main_content %}

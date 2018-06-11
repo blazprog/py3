@@ -1,0 +1,8 @@
+{% extends "myforms/base.html" %}
+{% block main_content %}
+<form action="{% url 'get_name' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input class="btn btn-default" type="submit" value="Submit"/>
+</form>
+{% endblock main_content %}

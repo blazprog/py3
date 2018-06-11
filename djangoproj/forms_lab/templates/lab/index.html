@@ -1,0 +1,15 @@
+{% extends "lab/base.html" %}
+{% block main_content %}
+
+
+    <h1>Forms Lab</h1>
+    <ul>
+        <li><a href="{% url 'enter_name' %}">Simplest form</a></li>
+        <li><a href="{%  url 'contact_me' %}">Contact form</a></li>
+        <li><a href="{%  url 'articles' %}">Edit Articles</a></li>
+        <li><a href="{%  url 'test_ajax' %}">Test ajax</a></li>
+        <li><a href="{%  url 'vnos_nakupa' %}">Nakupovalna košarica</a></li>
+        <li><a href="{%  url 'zgodovina_nakupov' %}">Zgodovina nakupov</a></li>
+    </ul>
+
+{% endblock main_content %}

@@ -1,0 +1,42 @@
+.table_title {
+    width: 220px;
+}
+
+.table_pub_date {
+    width:120px;
+}
+
+.data-table .table {
+    width: auto;
+}
+
+
+#nakup-pozicije tbody tr:last-child {
+    display:none;
+}
+#nakup-pozicije tbody tr:nth-child(-n+1) {
+    background-color:gray;
+}
+
+
+input { border: 0; font: 14px Georgia, Serif; overflow: hidden;}
+table { border-collapse: collapse; table-layout:fixed;margin-bottom: 10px; }
+table td, table th { border: 1px solid black; padding: 5px; }
+
+
+td.izdelek input {
+    width: 100%;
+}
+
+th.izdelek {
+    width: 300px;
+}
+
+td.kolicina input, td.cena input {
+    width: 120px;
+}
+
+th.kolicina th.cena {
+    width:130px;
+}
+

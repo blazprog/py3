@@ -1,0 +1,36 @@
+<!--modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labeledby="myModalLabel" aria-hidden="true" data-strankaid='0'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                        &times
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    Confirm delete
+                </h4>
+            </div> <!--class="modal-header"-->
+            <div id="modalContent" class="modal-body">
+                <form id='frm_delconfirm' class = "form-horizontal"
+                    method="post" action = "">
+                    {% csrf_token %}                
+                    <div class="well">
+                        Brisem  
+                    </div>
+                <input class='btn btn-danger' type="submit" value="Yes, delete." />
+                <button class="btn btn-default btn-confirm" 
+                    type="button" data-toggle="modal" data-target="#myModal">
+                    Cancel
+                </button>
+                {% comment %}
+                <a class= 'btn btn-default 'href="{% url "seznam_strank" %}">No, cancel.</a>        
+                {% endcomment %}
+                </form>
+            </div> <!--class="modal-body"-->
+            <div class="modal-footer">
+            </div> <!-- class=modal-footer-->
+        </div> <!--class=modal-content-->
+    </div> <!--class=modal-dialog-->
+</div>

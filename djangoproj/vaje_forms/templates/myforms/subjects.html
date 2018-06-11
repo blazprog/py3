@@ -1,0 +1,55 @@
+{% extends "myforms/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-7 col-sm-10">
+
+
+    <table class="table table-striped">
+        <caption>
+            <a href="{% url  "subject_add" language=language.language%}">
+            <span class="glyphicon glyphicon-plus"/>
+            </a>
+                {{ language.subjects_list_caption }}
+        </caption>
+
+        <thead>
+            <tr>
+                <th>{{ language.language_caption }}</th>
+                <th>{{ language.subject_caption }}</th>
+                <th>{{ language.group_caption }}</th>
+            </tr>
+        </thead>
+
+
+
+        {% for subject in subject_list %}
+            <tr>
+                <td>
+                    {{ subject.language }}
+                </td>
+                <td>
+                    {{ subject.subject }}
+                </td>
+                <td>
+                    {{ subject.group }}
+                </td>
+
+                <td class align="right">
+                       <a class="btn-table btn-edit"
+                       type="button"
+                       href="{% url 'subject_edit' pk=subject.id language=language.language %}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    </div> <!--container-fluid-->
+    </div> <!--row-->
+    </div> <!--class = "col-md-7 col-xs-12"-->
+{% endblock main_content %}

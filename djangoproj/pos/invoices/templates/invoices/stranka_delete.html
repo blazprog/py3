@@ -1,0 +1,15 @@
+{% extends "invoices/base.html" %}
+{% block main_content%}
+    <div class="container-fluid">
+    <div class="row">
+        <form class = "form-horizontal" method="post" action = "{% url 'stranka_delete' pk=stranka.id %}"">
+        {% csrf_token %}                
+        <div class="well">
+            Brisem {{ stranka}} ?
+        </div>
+        <input class='btn btn-danger' type="submit" value="Yes, delete." />
+        <a class= 'btn btn-default 'href="{% url "seznam_strank" %}">No, cancel.</a>        
+    </form>
+    </div>
+    </div>
+{% endblock main_content %}

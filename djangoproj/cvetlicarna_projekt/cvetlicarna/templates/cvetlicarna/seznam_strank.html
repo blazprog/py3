@@ -1,0 +1,38 @@
+{% extends "cvetlicarna/base.html" %}
+{% load staticfiles %}
+
+{% block page_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cvetlicarna/css/seznam_strank.css' %}" />
+{% endblock page_styles %}
+
+
+{% block article_block %}
+
+<div class="stranka_nav">
+    <a href="{% url 'cvetlicarna:dodaj_stranko' %}">Nova stranka</a>
+</div>
+<h2>Seznam strank cvetličarne</h2>
+<table class="seznam_strank">
+    <tr>
+        <th>Naziv stranke</th>
+        <th>Ulica</th>
+        <th>Kraj</th>
+        <th>Pošta</th>
+        <th>Država</th>
+    </tr>
+    {% for stranka in object_list %}
+        <tr>
+            <td>{{ stranka.nazivStranke }}</td>
+            <td>{{ stranka.ulica }}</td>
+            <td>{{ stranka.kraj }}</td>
+            <td>{{ stranka.idPosta }}</td>
+            <td>{{ stranka.idDrzava }}</td>
+            <td><a href="{% url 'cvetlicarna:uredi_stranko' pk=stranka.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock article_block %}
+
+
+

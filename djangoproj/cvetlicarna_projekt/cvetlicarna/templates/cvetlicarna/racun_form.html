@@ -1,0 +1,70 @@
+{% extends "cvetlicarna/base.html" %}
+
+{% load staticfiles %}
+
+{% block page_scripts %}
+<script src="{% static "cvetlicarna/js/jquery-1.11.2.js" %}"></script>
+<script src="{% static "cvetlicarna/js/form_events.js" %}"></script>
+{% endblock page_scripts %}
+
+{% block page_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cvetlicarna/css/racun_styles.css' %}" />
+{% endblock page_styles %}
+
+
+{% block article_block %}
+<div class="artikel_nav">
+    <a href="{% url 'cvetlicarna:seznam_racunov' %}">Seznam računov</a>
+</div>
+<h2>Nov račun</h2>
+
+<form method="post" action="{{ action }}">
+    {% csrf_token %}
+    <div>
+    <table class="racun_glava">
+    {{ form.as_table }}
+    </table>
+    </div>
+    <hr/>
+    <div>
+    {{ formset.management_form }}
+    <table class="racun_postavke">
+        <colgroup>
+            <col class="pozicija">
+            <col class="artikel">
+            <col class="kolicina">
+            <col class="cena">
+            <col class="popust">
+            <col class="em">
+            <col class="ddv">
+        </colgroup>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Artikel</th>
+            <th scope="col">Količina</th>
+            <th scope="col">Cena</th>
+            <th scope="col">Popust</th>
+            <th scope="col">Em</th>
+            <th scope="col">DDV</th>
+        </tr>
+        {% for form in formset %}
+            {{ form.id }}
+            <tr>
+            <td> {{ form.stevilkaPostavke }} </td>
+            <td> {{form.sifraArtikla }} </td>
+            <td> {{ form.kolicina }} </td>
+            <td> {{form.cena }} </td>
+            <td> {{ form.popust }}</td>
+            <td> {{ form.idEm }} </td>
+            <td> {{ form.idDDV }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <input type="submit" value = "Save"/>
+</form>
+<input type="button" id="add_row" value="Add row">
+
+
+{% endblock article_block %}
+

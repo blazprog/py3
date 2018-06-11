@@ -1,0 +1,39 @@
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+
+{%  block page_styles %}
+    textarea {
+        width: 600px;
+        height: 400px;
+        border: 3px solid #cccccc;
+	    padding: 5px;
+	    font-family: Tahoma, sans-serif;
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    tr {
+        line-height: 15px;
+    }
+{%  endblock page_styles %}
+
+{% block main_content %}
+
+    <h2>Vnesi novo vajo</h2>
+    <form action="{{ action }}" method="post">
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+            <tr>
+                <td>{{ field.label_tag }} </td>
+                <td>{{ field }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Save"/>
+    </form>
+
+{% endblock main_content %}

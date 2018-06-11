@@ -1,0 +1,91 @@
+
+{% extends "exercises/base.html" %}
+{% load staticfiles %}
+
+{% block page_styles %}
+
+    ol {
+        margin:auto;
+        font-family: Tahoma, Geneva, sans-serif;
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+        text-decoration: none;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        padding:10px;
+        border: 1px solid #999;
+        border: inset 1px solid #333;
+        margin-bottom: 15px;
+        list-style-position: inside;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    .button_ok {
+        text-decoration: none;
+        background-color: #68b12f;
+        background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+        background: -webkit-linear-gradient(top, #68b12f, #50911e);
+        background: -moz-linear-gradient(top, #68b12f, #50911e);
+        background: -ms-linear-gradient(top, #68b12f, #50911e);
+        background: -o-linear-gradient(top, #68b12f, #50911e);
+        background: linear-gradient(top, #68b12f, #50911e);
+        border: 1px solid #509111;
+        border-bottom: 1px solid #5b992b;
+        border-radius: 10px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        box-shadow: inset 0 1px 0 0 #9fd574;
+        -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+        -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+        -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+        -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+        color: white;
+        font-weight: bold;
+        padding: 6px 20px;
+        text-align: center;
+        text-shadow: 0 -1px 0 #396715;
+    }
+
+{% endblock page_styles %}
+
+{% block main_content %}
+
+    <h2>
+        Here are the results of {{ exercise_name }}
+    </h2>
+    <ol>
+        {% for line in exercise_parts %}
+                <li>
+                    {%  for part in line %}
+                        {% if part.partType == part.QUESTION_PART %}
+                            <span class="question">{{ part.text }}</span>
+                        {% else %}
+                            {% if part.text == part.userAnswer %}
+                                <span class="correct_answer">{{ part.userAnswer }}</span>
+                            {% else %}
+                                <span class="incorrect_answer">{{ part.userAnswer }}</span>
+                                <span class="solution">{{ part.text }}</span>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+        {% endfor %}
+    </ol>
+    <p style="text-align: right;">
+    <a class="button_ok"
+    href =" {% url  'exercise_solve' pk=exercise_id  language=language.language %}">
+    Nazja na vajo
+    </a>
+    </p>
+{% endblock main_content %}

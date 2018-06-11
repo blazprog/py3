@@ -1,0 +1,72 @@
+{% extends "invoices/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main_content%}
+    
+    {%comment%}
+    <script src="{%  static "invoices/app_scripts.js" %}"></script>
+    {% endcomment%}
+
+    <script src="{%  static "invoices/racun_add.js" %}"></script>
+    {% include 'invoices/modal_lookup_stranke.html' %}
+    {% include 'invoices/modal_lookup_artikli.html' %}
+    <div id="empty_form">
+        {{form_detail.empty_form.artikel}}
+        {{form_detail.empty_form.txtSifraArtikla}}
+        {{form_detail.empty_form.txtNazivArtikla }}
+        {{form_detail.empty_form.kolicina }}
+        {{form_detail.empty_form.cena }}
+        {{form_detail.empty_form.davek }}
+        {{form_detail.empty_form.popust }}
+    </div>
+
+    <div class="container-fluid">
+    <form class = "form-horizontal" method="post" action = "{{ action }}">
+
+        {% csrf_token %}
+        {{ form_detail.management_form }}
+        <div class="row">
+                {% crispy form_master %}
+        </div>
+        <div class="row">
+                <table id='nakup-pozicije-vnos' class = "table-formset invoice_edit">
+                    <thead>
+                    <tr class='line-items-caption'>
+                        <th class='artikel'></th>
+                        <th class='sifra-artikla'>Sifra artikla</th>
+                        <th class='naziv-artikla'>Naziv artikla</th>
+                        <th class='kolicina'>Količina</th>
+                        <th class='cena'>Cena</th>
+                        <th class='davek'>Davek</th>
+                        <th class='popust'>Popust</th>
+                        <th class='skupaj'>Skupaj</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for form in form_detail %}
+                        {{ form.id }}
+                         <tr class='line-item'>
+                            <td class='artikel'> {{ form.artikel}} </td>
+                            <td class='sifra-artikel'> {{ form.txtSifraArtikla}} </td>
+                            <td class='naziv-artikla'> {{ form.txtNazivArtikla }} </td>
+                            <td class='kolicina'> {{ form.kolicina }} </td>
+                            <td class='cena'> {{form.cena }} </td>
+                            <td class='davek'> {{form.davek }} </td>
+                            <td class='popust'> {{form.popust }} </td>
+                            <td class='skupaj'>{{form.skupaj}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+        <div class="row">
+            <input class="btn btn-success" type="submit" value = "Save"/>
+            <input id='cancel' class="btn btn-default" value = "Cancel"/>
+        </div>
+
+    </form>
+    </div><!--container-->
+        
+
+{% endblock main_content %}

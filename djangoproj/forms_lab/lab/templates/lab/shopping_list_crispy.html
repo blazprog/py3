@@ -1,0 +1,48 @@
+{% extends "lab/base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_styles %}
+<style>
+    .cena_te {
+        width: 111px;
+    }
+</style>
+{% endblock page_styles %}
+
+
+{% block main_content %}
+
+<div id="empty_form">
+        {{ formset.empty_form }}
+</div>
+
+<div class="container">
+    <form method="post" action="{{ action }}">
+        {% csrf_token %}
+        {{ form_detail.management_form }}
+        <div class  = "row">
+            <div class="col-md-10">
+                {% crispy form_master %}
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col-md-10 table_container">
+                {% crispy form_detail helper %}
+            </div>
+        </div>
+        <div class="row">
+            <input class="btn btn-success" type="submit" value = "Shrani"/>
+        </div>
+    </form>
+</div>
+
+
+
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+<script src="{%  static "formset_management.js" %}"></script>
+<script src="{%  static "jquery.formset.js" %}"></script>
+
+{% endblock main_content %}

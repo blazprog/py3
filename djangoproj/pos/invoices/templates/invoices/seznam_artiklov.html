@@ -1,0 +1,81 @@
+{% extends "invoices/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main_content%}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <caption>
+                    <a href="{% url 'artikel_add' %}">
+                    <span class="glyphicon glyphicon-plus"/>
+                    </a>
+                        &nbsp Seznam artiklov v trgovini
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Šifra</th>
+                        <th>Naziv</th>
+                        <th>Em</th>
+                        <th>Cena</th>
+                    </tr>
+                </thead>
+                {% for artikel in seznam_artiklov %}
+                    <tr>
+                        <td>{{ artikel.sifra }}</td>
+                        <td>{{ artikel.naziv }}</td>
+                        <td>{{ artikel.em }}</td>
+                        <td>{{ artikel.cena }}</td>
+                        <td class align="right">
+                            <a class="btn-table btn-edit"
+                                    type="button"
+                                    href = "{% url 'artikel_edit' pk=artikel.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a class="btn-table btn-delete"
+                                    type="button"
+                                    href = "{% url 'artikel_edit' pk=artikel.id %}"
+                                                               type="button">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        {% comment %}
+        Vsi ti if aktivna_skupina stavki so mamenjeni temu, da je link,
+        na katerem se nahajam poudarjen. Mogoče je to bolj enostavno z lastnimi tagi
+        {% endcomment %}
+
+        <div class="col-md-3" style="margin-top: 60px">
+            {% if aktivna_skupina %}
+                <a href="{% url 'seznam_artiklov' %}" class="list-group-item">
+                Vsi artikli
+                </a>
+            {% else %}
+                <a href="{% url 'seznam_artiklov' %}"
+                   class="list-group-item i-am-here">
+                Vsi artikli
+                </a>
+            {% endif %}
+
+            {% for skupina in seznam_skupin_artiklov %}
+                {% if aktivna_skupina == skupina.id %}
+                    <a href="{% url 'seznam_artiklov_filter' skupina=skupina.id %}"
+                    class="list-group-item i-am-here">{{skupina.naziv}}</a>
+                {% else %}
+                    <a href="{% url 'seznam_artiklov_filter' skupina=skupina.id %}"
+                    class="list-group-item">{{skupina.naziv}}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+    </div>
+{% endblock main_content %}

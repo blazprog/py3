@@ -1,0 +1,48 @@
+{% extends "myforms/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-7 col-sm-10">
+
+
+    <table class="table table-striped">
+        <caption>
+            <a href="{% url  "exercise_add" language=language.language%}">
+            <span class="glyphicon glyphicon-plus"/>
+            </a>
+                {{ exercise_list.0.subject.subject }}
+        </caption>
+        {% for exercise in exercise_list %}
+            <tr>
+                <td>
+                    <a class = "exercise_solve_link"
+                       href="{% url 'exercise_solve' pk=exercise.id  language=language.language %}">
+                        {{ exercise.name }}
+                    </a>
+                </td>
+                <td class align="right">
+                       <a class="btn-table btn-edit"
+                       type="button"
+                       href="{% url 'exercise_solve' pk=exercise.id  language=language.language %}">
+                        <span class="glyphicon glyphicon-education"></span>
+                    </a>
+                </td>
+
+                <td class align="right">
+                       <a class="btn-table btn-edit"
+                       type="button"
+                       href="{% url 'exercise_edit' pk=exercise.id language=language.language %}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    </div> <!--container-fluid-->
+    </div> <!--row-->
+    </div> <!--class = "col-md-7 col-xs-12"-->
+{% endblock main_content %}

@@ -1,0 +1,28 @@
+{% extends "cvetlicarna/base.html" %}
+{% block article_block %}
+<div class="artikel_nav">
+    <a href="{% url 'cvetlicarna:dodaj_artikel' %}">Nov artikel</a>
+</div>
+<h2>Seznam artiklov v cvetličarni</h2>
+<table class="seznam_artiklov">
+    <tr>
+        <th>Naziv artikla</th>
+        <th>Vrsta artikla</th>
+        <th>Em</th>
+        <th>Cena</th>
+        <th>Stopnja DDV</th>
+    </tr>
+    {% for artikel in object_list %}
+        <tr>
+            <td>{{ artikel.nazivArtikla }}</td>
+            <td>{{ artikel.idVrstaArtikla }}</td>
+            <td>{{ artikel.idEm }}</td>
+            <td>{{ artikel.cena }}</td>
+            <td>{{ artikel.idDDV }}</td>
+            <td><a href="{% url 'cvetlicarna:uredi_artikel' pk=artikel.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock article_block %}
+

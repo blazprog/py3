@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<script src="{% static "js/jquery-1.11.2.js" %}"></script>
+<script src="{% static "js/form_events.js" %}"></script>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Practicing words</title>
+    <style>
+        div.select_singer {
+            float: left;
+            width:200px
+        }
+
+        div.details {
+            margin-left: 210px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pactice words</h1>
+    <h2>Write a meaning of the world next to translation</h2>
+    <form>
+        <table border="1">
+            <tr>
+                <th>Translation</th>
+                <th>Your answer</th>
+                <th>Correct</th>
+            </tr>
+            {% for word in words_list %}
+                <tr>
+                    <td>{{ word.translation }}</td>
+                    <td><input id= "{{ word.id }}"
+                               class = "answer_input"
+                               type="text"
+                               value=""/></td>
+                    <td class ={{ word.id }}></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Check"/>
+        <p></p>
+        <input type = "text" id="jsonbutton"/>
+        <div id="jsondata">
+
+        </div>
+        <hr>
+        <div>
+            <p>Change select example</p>
+            <div class="select_singer">
+            <select name="names" id="names">
+                <option>Blondie</option>
+                <option>Samantha</option>
+                <option>Kim</option>
+            </select>
+            </div>
+            <div class="details">
+                <h2></h2>
+                <p></p>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

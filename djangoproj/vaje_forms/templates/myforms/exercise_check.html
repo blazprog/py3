@@ -1,0 +1,38 @@
+{% extends "myforms/base.html" %}
+{% load staticfiles %}
+
+{% block main_content %}
+    <h4>
+        {{ Here_are_the_results_of }} {{ exercise_name }}
+    </h4>
+    <div class="well">
+        <ul>
+            <li>{{ language.caption_correct}}: {{ correct_answers}}</li>
+            <li>{{ language.caption_incorrect}} {{ incorrect_answers}}</li>
+        </ul>
+    </div>
+    <ol>
+        {% for line in exercise_parts %}
+                <li style="margin-bottom: 10px">
+                    {%  for part in line %}
+                        {% if part.partType == part.QUESTION_PART %}
+                            <span class="question">{{ part.text }}</span>
+                        {% else %}
+                            {% if part.text == part.userAnswer %}
+                                <span class="correct_answer">{{ part.userAnswer }}</span>
+                            {% else %}
+                                <span class="incorrect_answer">{{ part.userAnswer }}</span>
+                                <span class="solution">{{ part.text }}</span>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+        {% endfor %}
+    </ol>
+
+    <a class="btn btn-primary"
+        href = "{% url  'exercise_solve' pk=exercise_id language=language.language%}">
+        {{ language.play_again }}
+    </a>
+
+{% endblock main_content %}

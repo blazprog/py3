@@ -1,0 +1,14 @@
+{% extends "common/base.html" %}
+{% load crispy_forms_tags %}
+{% block main_content%}
+    <div class="container">
+    <form class = "form-horizontal" method="post" action = "{{ action }}">
+        {% csrf_token %}
+        <div class="row">
+            {% crispy form %}
+        </div>
+
+    </form>
+    </div><!--container-->
+        
+{% endblock main_content %}

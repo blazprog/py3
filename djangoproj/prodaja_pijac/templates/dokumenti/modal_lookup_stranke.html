@@ -1,0 +1,46 @@
+{% extends "dokumenti/modal.html" %}
+
+{%block modal-id%}modalStranka{%endblock modal-id%}
+
+{% block modal-title %}
+<div class='modal_stranka'>
+Iskanje strank
+</div>
+{% endblock modal-title %}
+
+{% block modal-content %}
+
+    <div class="form-group col-md-12">
+        <div class="input-group">
+            <input id="txt_lookupStranke" type="text"
+                   class="form-control txt_lookup"
+                    placeholder="Vnesi naziv stranke"/>
+            <span class="input-group-btn">
+                 <button type='button' 
+                         id="pb_lookup_stranke" 
+                         class="btn btn-default">
+                    Go!
+                </button>
+            </span>
+        </div> <!--input group-->
+    </div>
+
+
+    <div class="row lookup_panel">
+        <div id='searchResult_placeholderStranke' 
+             class="searchResult_placeholder col-md-12">
+        </div>
+    </div>
+
+    <script>
+        params = {
+            table: 'stranka',
+        }
+        $('#pb_lookup_stranke').on('click',params,insert_resultTemplate);
+    </script>
+
+{% endblock modal-content %}
+
+{% block modal-footer %}
+{% endblock modal-footer %}
+

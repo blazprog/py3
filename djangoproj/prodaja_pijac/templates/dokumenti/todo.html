@@ -1,0 +1,54 @@
+{% extends "common/base.html" %}
+{% load static %}
+
+{% block main_content%}
+    <script type="text/template" id="item-template">
+        <div class="view">
+            <input class="toggle" type="checkbox"
+            <%= completed ? 'checked' : '' %>>
+            <label><%- title %></label>
+            <button class="destroy"></button>
+        </div>
+        <input class="edit" value="<%- title%>">
+    </script>
+    
+    <script type='text/template' id='stats-template'>
+        <span id="todo-count">
+            <strong><%= remaining %></strong>
+            <%= remaining ===1 ? 'item': 'items'%> left
+        </span>
+        <ul id="filters">
+            <li><a class="selected" href="#/">All</a></li>
+            <li><a href="#/active">Active</a></li>
+            <li><a href="#/completed">Completed</a></li>
+        </ul>
+    </script>
+
+    <script type='text/template' id='tmplSkupinaArtikla'>
+    </script>
+    
+    <section id ='todoapp'>
+        <headet id="header">
+            <h1>todos</h1>
+            <input id="new-todo" 
+                type="text" 
+                class='form-control'
+                placeholder= 'What needa to be done'
+                autofocus>
+        </headet>
+        <section id="main">
+            <input id="toggle-all" type="checkbox">
+            <label for="toggle-all">Mark as complete</label>
+            <ul id="todo-list"></ul>
+        </section>
+        <footer id="footer">
+        </footer>
+    </section>
+    <div id="info">
+        <p>Double click to edit a todo</p>
+        <p>Written by Addy Osmani</p>
+
+    </div>
+    
+    <script src="{%  static "_js/todo.js" %}"></script>
+{% endblock main_content %}

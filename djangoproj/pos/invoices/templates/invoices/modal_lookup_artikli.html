@@ -1,0 +1,45 @@
+{% extends "invoices/modal.html" %}
+
+{%block modal-id%}modalArtikel{%endblock modal-id%}
+
+{% block modal-title %}
+<div class='modal_artikel'>
+Iskanje artiklov
+</div>
+{% endblock modal-title %}
+
+{% block modal-content %}
+
+    <div class="form-group col-md-12">
+        <div class="input-group">
+            <input id="txt_lookupArtikel" type="text"
+                   class="form-control txt_lookup"
+                    placeholder="Vnesi naziv artikla"/>
+            <span class="input-group-btn">
+                 <button type='button' 
+                         id="pb_lookup_artikli" 
+                         class="btn btn-default">
+                    Go!
+                </button>
+            </span>
+        </div> <!--input group-->
+    </div>
+
+
+    <div class="row lookup_panel">
+        <div id='searchResult_placeholderArtikel' 
+            class="searchResult_placeholder col-md-12">
+        </div>
+    </div>
+
+    <script>
+        params = {
+            table: 'artikel',
+        }
+        $('#pb_lookup_artikli').on('click',params,insert_resultTemplate);
+    </script>
+
+{% endblock modal-content %}
+
+{% block modal-footer %}
+{% endblock modal-footer %}

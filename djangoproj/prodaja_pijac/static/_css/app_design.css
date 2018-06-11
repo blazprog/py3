@@ -1,0 +1,157 @@
+div#header h1 {
+    background: blue;
+    text-align: center;
+    color: white;
+    padding: 10px 0 10px 0;
+}
+div#empty_form {
+    display : none;
+}
+
+a.btn-table {
+    height: 25px;
+    padding: 5px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: white;
+    background: grey;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+a.btn-edit {
+    /*background: royalblue;*/
+}
+
+.btn-delete:hover {
+    cursor:pointer;
+}
+
+a.i-am-here {
+    background: lightgray;
+    font-weight: bold;
+}
+
+input { border: 0; font: 14px Georgia, Serif; overflow: hidden;}
+table.invoice_edit { border-collapse: collapse; table-layout:fixed;margin-bottom: 10px; }
+table.invoice_edit td, table.invoice_edit th { border: 1px solid black; padding: 5px; }
+
+
+#nakup-pozicije-vnos  {
+   margin-top: 20px; 
+}
+
+#nakup-pozicije-vnos tbody tr:last-child {
+    display:none;
+}
+
+td.artikel, th.artikel {
+    width: 0;
+}
+
+td.artikel input {
+    width: 0;
+}
+
+td.kolicina input, 
+td.cena input,
+td.popust input,
+td.davek input
+{
+    width: 90px;
+    text-align: right;
+}
+
+
+td.kolicina, 
+td.cena,
+td.popust,
+td.davek 
+{
+    width: 90px;
+    text-align: right;
+}
+
+
+th.kolicina, th.cena,
+th.davek, th.popust
+{
+    width:90px;
+    text-align: right;
+}
+
+
+td.sifra-artikel input
+{
+    width: 90px;
+}
+
+
+
+td.naziv-artikla input
+{
+    width: 220px;
+}
+
+td.skupaj
+{
+    width: 110px;
+    text-align: right;
+}
+
+div.invoice-head dl.left {
+    float: left;
+}
+
+div.invoice-head dl.right {
+    float: left;
+}
+
+
+
+div.invoice-details {
+    clear: both;
+    padding-top:30px;
+}
+
+dl.table-display
+{
+	float: left;
+	margin: 1em 0;
+	padding: 0;
+}
+	
+.table-display dt
+{
+	clear: left;
+	float: left;
+	width: 150px;
+	margin: 0;
+	padding: 5px;
+	font-weight: bold;
+        line-height: 1;
+}
+
+.stranka dt {width: 80px;}
+	
+.table-display dd
+{
+	float: left;
+	width: 250px;
+	margin: 0;
+	padding: 5px;
+        line-height: 1;
+}
+
+
+
+.row-fluid .form-group {
+    margin-bottom: 5px;
+}
+
+
+tr.rekapitulacija  td {
+    background: #E5E5E4;
+    text-align: right;
+}
+

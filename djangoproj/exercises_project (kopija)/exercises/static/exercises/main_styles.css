@@ -1,0 +1,126 @@
+body {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #FDFCD2;
+    margin: auto;
+}
+
+h1 {
+    font: italic normal 3em Baskerville, "Palatino Linotype", "Times New Roman", serif;
+    color: #46874D;
+    padding-left: 2px;
+}
+
+table {
+    margin-top:20px;
+}
+
+td {
+    padding: 5px 10px 5px 5px;
+}
+
+tr {
+    line-height: 30px;
+}
+
+.exercises {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin-top: 25px;
+  border-collapse: collapse;
+}
+
+.exercises caption {
+  text-align: right;
+  font-size: .85em;
+  margin-bottom: 10px;
+}
+
+
+.exercises td, .exercises th {
+  font-size: 1.1em;
+  padding: 3px 7px 2px 7px;
+}
+
+.exercises th {
+  text-transform:uppercase;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  background: rgb(229,76,16);
+  background: -webkit-linear-gradient(rgb(229,76,16), rgb(173,54,8));
+  background: -moz-linear-gradient(rgb(229,76,16), rgb(173,54,8));
+  background: -o-linear-gradient(rgb(229,76,16), rgb(173,54,8));
+  background: linear-gradient(rgb(229,76,16), rgb(173,54,8));
+  color: white;
+}
+
+a.create_exercise {
+    float: right;
+    display: block;
+}
+
+a.button {
+    border: solid 1px #000;
+    border-radius: 10px;
+    background-color: #6ffffa;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.exercises input {
+    text-align: center;
+}
+
+.correct_answer {
+    color: darkgreen;
+}
+
+.incorrect_answer {
+    color: darkblue;
+}
+
+.solution {
+    color: red;
+}
+
+header {
+    background-color: sandybrown;
+    padding-bottom: 2px;
+}
+
+
+nav {
+    float: left;
+}
+
+.main_content {
+    margin-left: 150px;
+    padding-left: 20px;
+}
+
+.main_links {
+    margin-bottom: 10px;
+}
+
+.main_links ul {
+    text-align: center;
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style: none;
+    border-bottom: 1px dashed #000;
+}
+
+.main_links ul li {
+    display: inline;
+}
+
+.main_links a {
+    display: inline-block; /*Da mi upošteva top in bottom paddings and margins*/
+    border: 1px dashed #000;
+    border-bottom: none;
+    padding: 5px 15px 5px 15px;
+    background-color: #eaeaea;
+    text-decoration: none;
+    color: #333;
+}

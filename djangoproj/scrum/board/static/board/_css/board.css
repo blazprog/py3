@@ -1,0 +1,193 @@
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+/* Generic
+==================== */
+body {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Lato', Helvetica, sans-serif;
+}
+a { 
+    text-decoration: none; 
+}
+
+button, a.button {
+    font-size: 13px;
+    padding: 5px 8px;
+    border: 2px solid #222;
+    background-color: #FFF;
+    color: #222;
+    transition: background 200ms ease-out;
+}
+
+    
+button:hover, a.button:hover {
+    background-color: #222;
+    color: #FFF;
+}
+
+input, textarea {
+    background: white;
+    font-family: inherit;
+    border: 1px solid #cccccc;
+    box-shadow: inset 0 1px 2px rgbdisplay: block;
+    font-size: 18px;
+    margin: 0 0 16px 0;
+    padding: 8px
+}
+
+#content {
+    padding-left: 25px;
+    padding-right: 25px;
+    }
+
+    .hide {
+    display:}
+    none;
+    .error {
+    color: #cd0000;
+    margin: 8px 0;
+    display: block;
+}
+
+/* Header
+====================*/
+header {
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #CCC;
+}
+
+header .title {
+    font-weight: 900;
+    padding-left: 25px;
+}
+
+header nav {
+    display: inline-block;
+    float: right;
+    padding-right: 25px;
+
+}
+header nav a {
+    margin-left: 8px;
+
+}    
+
+header nav a:hover {
+    background: #222;
+    color: #FFF;
+}
+/* Login
+====================*/
+
+div#login {
+    width:100%;
+}
+
+#login form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+#login form input {
+    margin-bottom: 15px;
+}
+
+#login form label, #login form input {
+    display: block;
+}
+
+
+/* Sprint Listing
+==================== */
+.sprints {
+    margin-top: 25px;
+}
+
+.sprints a.sprint {
+    padding: 25px;
+    float: left;
+    text-align: center;
+    background: #000;
+    margin: 8px 8px 0 0;
+    color: #FFF;
+}
+
+.sprints a.sprint span {
+    font-size: 10px;
+}
+
+/*New sprint form
+ ==================*/
+
+.new-sprint {
+    border: 1px solid #CCC;
+    padding: 20px;
+}
+
+
+form#new-sprint label {
+    clear: left;
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding: 7px 15px 0 0;
+    text-align: right;
+    text-transform: uppercase;
+    width: 175px;
+
+}
+
+
+
+/*tasks*/
+.tasks {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    align-items: strech;
+    overflow: scroll;
+}
+
+.task .status  {
+    background: #EEE;
+    border: 1px solid #CCC;
+    padding: 0 10px 15px 10px;
+    margin-right: 8px;
+    width: 17%;
+}
+
+.task .status .list {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.task-detail input, .task-detail textarea {
+    width: 90%;
+}
+
+.add-task {
+    border: solid;
+    padding: 10px;
+}
+
+.input_group label {
+    float: left;
+    width: 150px;
+}
+
+.input_group button.create {
+    margin-left: 150px;
+}

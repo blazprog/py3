@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+<form action="{% url 'upload_car'%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="pb_submit" value="Submit"/>    
+</form>
+</body>
+</html>
+

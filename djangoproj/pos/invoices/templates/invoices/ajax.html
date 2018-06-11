@@ -1,0 +1,58 @@
+{% extends "invoices/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main_content%}
+{% include 'invoices/modal_info.html' %}
+
+<h1>Ajax Examples</h1>
+    <h2>Get information on button click</h2>
+    <button id="btn_count" class="bnt btn-default">
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+    </button>
+    <div class="well">
+        You are good clicker, you clicked <span id="clicks"></span> times.
+    </div>
+    
+    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
+       Open modal window 
+    </button>
+
+    <h2>Get selected list from server</h2>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-1">
+                <label>Artikel</label>
+            </div>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <input id="txt_lookup" type="text"
+                           class="form-control"
+                            placeholder="Šifra artikla"/>
+                    <span class="input-group-btn">
+                     <button type='button' id="pb_lookup" class="btn btn-default"
+                        data-toggle='collapse' data-target='#lookup_artikles'>
+                         Go!
+                     </button>
+                    </span>
+                </div> <!--input group-->
+            </div>
+            <div class="col-md-1">
+                <label>Naziv artikla</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="txt_lookup_result" class="form-control">
+            </div>
+
+        </div> <!--row-->
+
+
+        <div id="lookup_artikles" class='collapse'>
+
+        </div>
+
+
+
+<script src="{%  static "invoices/app_scripts.js" %}"></script>
+{% endblock main_content %}

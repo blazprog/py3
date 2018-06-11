@@ -1,0 +1,242 @@
+Za risanje v Qt so ključni naslednji razredi QPainter, QPaintEngine in QPaintDevice
+
+QPaintEngine se uporablja samo v ozadju, uporabimo ga že želimo ustvariti svoj kontekst risanja.
+
+Osnovni razred je QPainter, ki ima naslednje možnosti:
+    -riasnje geomterijskih likov, teksta in rasterskih slik
+    -antialiasing
+    -transparentnost
+    -gradient
+    -....
+
+
+Razredi nasledniki QPaintDevice so površina na katere rišemo. Nasledniki razreda QPaintDevice so:QWidget, QImage, QPicture, QImage, QPrinter, QPixmap, ...
+
+Najbolj pogosto se risanje izvede v metodi QPaintEvent. Metoda se izvede vsakič, ko je potrebno ponovno narisati widget. Objekt tipa QPaintDevice vsebuje metodo region(), ki vrne pofročje, ki jo je potrebno prerisati.Metoda rect() pa vrne pravokotnik, ki vsebuje to območje. Da odstranimo efekt migetanija se uporablja tehnika dvojnoj bufferizaciji. Slika se najprej nariše v ozadju in se potem v eni potezi prenese na vidno območje. To se zgodi avtomatsko, v paintEven() ni potrebno dodajati nobene dodatne kode.
+
+=================================================================
+RAZRED Qpainter
+==================================================================
+
+Razred QPainter izvaja ukaze risanja. Vsebuje množico metodov za risanje točk, elips, črt itd.. Rišemo lahko na vse objekte, naslednike QPaintDevice. To pomeni, da lahko sliko iu enega konteksta risanja prenesemo na drugo. Če hočemo uporabiti razred QPainter mu moramo predati kontekst risanja. To lahko naredimo v konstruktorju npr. QPainter(self) ali pa s pomočjo metode begin(). Če uporabljamo metodo begin, moramo na koncu uporabiti metodo end().Z enim QPainterjem lahko rišem na več kontekstov risanja, prav tako lahko z već QPainter rišem na en kontekst. Objekti razreda QPainter vsebujejo lastnosti, ki vplivajo na risanje. Te lastnosti so lahko:
+    -transformacija koordinat
+    -modifikacija svinčnika ali čopiča
+    -nastavitev pisave
+    -nastavite antialiasing ....
+Pred začetkom risanja je dobro te nastavitve shraniti s pomočjo QPainter.save() in po koncu risanja restavriram stare nastavitve s QPainter.restore()
+
+SVINČNIK IN ČOPIČ
+===================================================================
+Svinčnik in čopič so osnova z aprogramiranje v grafiki. Brez njih na ekranu ne moremo narisati niti ene točke.
+
+
+SVINČNIK
+----------------------------------------------------------------------
+Uporabljamo za risanje zunanjih, konturnih linij figur. Njegovi atributi so barva, debelina in stil. Razredu QPainter dodelimo razred QPen z metodo QPainter.setPen(QPen)
+Debelina črte se določi QPen. setWidth(). To je cel število, debelina 0 ne pomeni, da bo črta nevidna, ampak da bo narisana čim tanjše. Če hočem narisati nevidno linijo uporabim stil NoPen.
+
+QPen ima lahko naslednje stile
+Stil                    Vrednost
+-----------------------------------
+NoPen                   0
+SolidLine               1
+DashLine                2    
+DotLine                 3
+DashDotLine             4    
+DashDotDotLine          5
+
+V spodnjem primeru dodelimu QPainterju QPen rdeče barve, debeline tri, črtkasti stil
+painter = QPainter(self)
+painter.setPen(QPen(Qt.red, 3, Qt.DashLine)
+
+setCapStyle() [Qt.FlatCap | Qt.SquareCap | Qt.RoundCap] -->> stil za zaključek linije
+setJoinStyle() [Qt.MiterJoin | Qt.BevelJoin | Qt,RoundJoin] --> stil za prehod ene linije v drugo
+
+ČOPIČ
+------------------------------------
+Uporabljamo za zapolnitev zaključenih linij. QBrush opredelimo z barvo in načinom polnitve. Če nočemo zapolniti lik potem v QPainter.setBrush(NoBrush)
+
+Za način polnitve so naslednje možnosti:
+NoBrush
+SolidPattern
+Dense1Pattern do Dense7Pattern
+HorPattern
+VerPattern
+CrossPattern
+BDiagPattern
+FDiagPattern
+DiafCrossPattern
+LinearGradientPattern
+RadialGradientPatter
+ConicalGradientPattern
+TexturePattern
+
+Naslednji primer ustvari rdeč čopič s horizontalnimi linijami
+painter = QPainter(self)
+painter.setBrush(QBrush(Qt.red, Qt.HorPattern)
+
+Za način polnjenja lahko uporabim tudi rastersko sliko na primer:
+pix = QPixmap("fruits.jpg")
+painter.setBrush(QBrush(Qt.black, pix) 
+painter.drawEllipse(0,0,300,150)
+Vidimo, da za dodelitev rasterske slike iz fajla uporabljam razred QPixmap
+
+druga možnost je, da predam sliko metodi setTexture
+brush.setTexture(pix)
+
+
+GRADIENTI
+================================================
+Gradient je zvezni prehod iz ene barve v drugo. To se dsoeže s pomočjo interpolacije. Imamo tri tipe gradientov, ki so predtavljeni v zgornji tabeli načinov polnitve.
+
+
+TEHNIKA GLAJENJA (Anti-Aliasing)
+==================================================
+Na robovih se pojavlja stopničasti efekt. S tehniko Anti-Aliasing naredimo črte in krivulje bolj gladke. To zmanjša hitrost risanja, zato pa poboljša vizualni efekt. Ta Anti-Aliasing uporabim metodo setRenderHint(QPainter.Antialiasing, true)
+
+painter.setRenderHint(QPainter.Antialiasing, True)
+
+RISANJE
+====================================================
+
+Pike in črte
+-----------------------------------
+painter = QPainter(self)
+painter.setPen(QPen(Qt.black, 3))
+
+painter.drawPoint()
+painter.drawLine(QPointF(x1,y1),QPointF(x2, y2))
+painter.drawPolyLine(listOfPoints)
+
+
+Pravokotniki brez konturnih linij
+------------------------------------
+painter.fillRect(10, 10, 100, 100, brush)
+paintereraseRect(20, 20, 80, 80)
+
+
+Risanje zapolnjenih figur
+-------------------------------------
+Uporabljamo QPen in QBrush. Za risanje brez konturnih linij uporabim stil svinčnika NoPen
+pen = QPen(Qt.NoPen)
+Za risanje brez polnila
+brush = QBrush(NoBrush)
+
+Primer za risanje pravokotnika:
+painter = QPainter(self)
+painter.setRenderHint(QPainter.Antialiasing, true)
+painter.setBrush(QBrush(Qt.Green))
+painter.setPen(QPen(Qt.blue), 3, Qt.DashLine)
+painter.drawRect(QRect(10,10,110,70))
+
+Primer za risanje pravokotnika z zaobljenimi robovi
+painter = QPainter(self)
+painter.setRenderHint(QPainter.Antialiasing, true)
+painter.setBrush(QBrush(Qt.Green))
+painter.set
+painter.setPen(QPen(Qt.blue), 3, Qt.DashLine)
+painter.drawRoundRect(QRect(10,10, 110, 70),30, 30)
+Zadnja dva argumneta sta stopnja zakrivljenosti med 0 - ni zakrivljenosti in
+                                                    100 - pravokotnik se spremeni v elipso
+
+Na podoben način rišemo elipse, loke, tortne diagrame ...
+
+
+ZAPISOVANJE UKAZOV RISANJA
+================================================
+Razred QPicture - to je kontekst risanja, ki si "zapomne" ukaze razreda QPainter. Razred QPicture laho te ukaze shrani v datoteko na disku (metafajl), jih potem ponovno prebrati in potem narisat na drugih kontekstih risanja kot npr printer ali kak ekranski widget.
+
+1)Shranjevanje
+pic = QPicture()
+painter = QPainter(pic)
+painter.drawLine(20, 20, 50, 50)
+pic.save("my_line.dat")
+
+2)Branje in risanje na drug kontekst risanja
+pic = QPicture()
+pic.load("my_line.dat")
+painter = QPainter(self)
+painter.drawPicture(QPoint(0,0), pic)
+
+
+TRANSFORMACIJA SISTEMA KOORDINAT
+=================================================
+S pomočjo transformacije sistema koordinat lahko sliko:
+-premaknemo   translate(x, y)    Premakne točke v levo za x in navzdol za y
+.povečamo     scale(1.5, 0.5)    Poveča sliko za prvi faktor v širino in za drugo v dolžino 
+.obračamo     rotate(30.0)       Obrne za določen kot
+-nagibamo     shear(0.3, 0)      premestitev po vertikali in horizontali
+
+Če želimo naenkrat podati več metodov transformacij, jih lahko najprej združimo v matriko
+matrix = QMatrix()
+mat.scale(0.5, 0.5)
+mat.shear(0.2, 0.5)
+painter.setMatrix(mat)
+painter.drawText(self.rect(), Qt.AlignCenter, "Transformated Text")
+ 
+
+
+
+
+**********************************
+*RASTRSKE SLIKE                  *
+**********************************
+Rastrske slike so nabor barvnih vrednosti, ki se imenujejo pixli. Pixli so celice, ki formirajo grafično obliko na izhodni napravi. Človeško oko ni sposobno razlokovati posamezne celice, tako da jih možgani sintetizirajo v celoto.
+
+
+OImage -> Kontekstno neodvisna predstavitev rastrske slike. Podatki se hranijo v navadnem masivu, kar daje možnost učinkovitega dostopa do posameznega pixla in možnost učinkovitega branja in pisanja datotek z rastrovimo slikami.
+
+V razredu QImage lahko uporabim vse metode risanja in QPainter.
+
+Formati, ki jih podpira razred QImage so naslednji:
+
+Format_Invalid                      Nepravilna radtska slika
+Format_MonoLSN                      En pikse en bajt. Prvi bit starejši
+Format_MonoLSB                      En piskel en bit. Prvi bit mlajši
+Format_Index8                       8 bitne barvne vrednosti 
+Format_RGB32                        32 bitne barvne vrednosti, alfa kanal vedno 0
+Format_ARGB32                       32 bitne barvne vrednosti, nastavljiv alfa kanal
+Format_ARGB32_Premultiplied         Isto kot zgoraj, no optimizirano za kontekst risanja
+
+Vrednost formata lahko zvemo s pomochjo funkcije format()
+
+S pomochjo metode scanLine lfhko dobimo naslov vrstice stevilka katere odgovarja vrednosti predane tej metodi. Da ustvarim klas mu moram predadi sirino, visino in format. Vrednost lahko preberem iz datoteke primer QImage(lisa.jpg)
+Ce hocem lahko dodam sliko v Qimage z metodo load(), tako lahko dodam tudi potem, ko sem sliko ze ustvaril.
+
+img=QImage(320, 240, QColor.blue)
+img.save('blue.jpg', 'JPG')
+
+Razred QPainter je nezamenljiv, ce je potrebno dostopati do posameznih pikslov na sliki
+Primer:
+QRgb = img.pixel(250, 100)
+Vrednost pixla lahko postavim z metodo setPixel(x, y, rgb)
+Primer:
+rgb = QRgb(200, 100, 9)
+img. setPixel(20, 50, rgb)
+
+Objekt razreda QImage narisemo na kontekst risanja z metodo QPainter.drawImage(). Preden se razred narise na ekran se pretvori v QPixmap, ki je kontekstno odvisna predstavitev slike.
+
+Primer:
+painter = QPainter(self)
+img = QImage('lisa.jpg')
+painter.dravImage(0,0 img)
+
+Ce je potrebno narisati samo del rastrske slike potem metodi drawImage podam se koordinate in sirino in visino slike.
+Primer:
+painter = QPainter(self)
+QImage = img('lisa.jpg')
+painter.drawImage(0,0 img, 30, 30, 110, 100)
+
+
+QImage ima se naslednje zanimive metode:
+lnvertPixels()
+scaled() z moznostjo Qt.KeepAspectRatio in Qt.IgnoreAsceptRatio
+mirored()
+
+Razred QImage kot kontekst risanja
+*********************************************
+Razred QImage je lahko tudi kontekst risanja. Smiselno ga je uporabiti takrat, ko je kvatiteta pomembnejsa od hitrosti risanja slike. Ce hocem uporabiti razred QImage kot kontekst risanja moram nastaviti format Format_ARGB32 ali Format_ARGB32_Premultiplied. Slednji je bolj priporocljiv saj je optimiziran za operacije risanja.
+
+ 
+
+

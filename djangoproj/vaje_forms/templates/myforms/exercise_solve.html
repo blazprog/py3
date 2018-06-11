@@ -1,0 +1,46 @@
+{% extends "myforms/base.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{% block main_content %}
+
+    <h4>
+        {{ exercise_name }}
+    </h4>
+    <div>
+        <form class = "form-inline" role="form" name="exercises" action="{{ action }}" method="POST">
+        {% csrf_token %}
+        <ol>
+        {% for line in exercise_parts %}
+                <li>
+                    {%  for part in line %}
+                        {% if part.partType == part.QUESTION_PART %}
+                            <span class="exercise">{{ part.text }}</span>
+                        {% else %}
+                            {% if part.hint %}
+                                <input  class="exercise form-control" style="margin-top: 3px"
+                                        name="{{ part.partName }}"
+                                        type="text"
+                                        size = "{{ part.input_size }}"
+                                        placeholder="{{ part.hint }}"/>
+                            {%  else %}
+                                <input class="exercise form-control" style="margin-top: 3px"
+                                       name="{{ part.partName }}"
+                                       type="text"
+                                       size = "{{ part.input_size }}"/>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ol>
+
+         <input class="btn btn-primary" type="submit" value="{{ language.check }}"/>
+         <a role="button"
+            class="btn btn-default"
+            href = "{% url 'exercises' subject=subject language=language.language %}">
+            {{ language.cancel }}
+         </a>
+        </form>
+    </div>
+{% endblock main_content %}

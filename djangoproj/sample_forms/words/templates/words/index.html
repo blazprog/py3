@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Managing words</title>
+</head>
+<body>
+<h1>This is site for learning new words</h1>
+<ul>
+    <li><a href="{% url 'words:home' %}">Home</a></li>
+    <li><a href="{% url 'words:list' %}">List of words</a></li>
+    <li><a href="{% url 'words:add_word' %}">Add New Words</a></li>
+    <li><a href="{% url 'words:practice' %}">Practice words</a></li>
+</ul>
+</body>
+</html>

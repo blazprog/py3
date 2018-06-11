@@ -1,0 +1,35 @@
+<table class="table table-striped" style="width: auto">
+    <caption>
+    Rezultat iskanja
+    </caption>
+    <thead>
+        <tr>
+            <th>Šifra</th>
+            <th>Naziv</th>
+            <th>Posta</th>
+            <th>Ulica</th>
+            <th>Kraj</th>
+        </tr>
+    </thead>
+    {% for stranka in context_list %}
+        <tr class="stranka_data">
+            <td>{{ stranka.sifra }}</td>
+            <td>{{ stranka.naziv }}</td>
+            <td>{{ stranka.posta }}</td>
+            <td>{{ stranka.ulica }}</td>
+            <td>{{ stranka.kraj }}</td>
+            <td><button id="{{ forloop.counter }}"
+                class="btn btn-sm btn-success
+                btn_izberi_stranko" data-stranka_id="{{ stranka.id }}">
+                Izberi
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+    <script>
+        $(".btn_izberi_stranko").click(function() {
+            alert('Izbiram stranko');
+        });
+    </script>
+)
+</table>

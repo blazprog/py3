@@ -1,0 +1,25 @@
+{% extends "cvetlicarna/base.html" %}
+{% block article_block %}
+<div class="racun_nav">
+    <a href="{% url 'cvetlicarna:dodaj_racun' %}">Nov račun</a>
+</div>
+<h2>Seznam izdanih računov v cvetličarni</h2>
+<table class="seznam_racunov">
+    <tr>
+        <th>Številka računa</th>
+        <th>Datum računa</th>
+        <th>Stranka</th>
+    </tr>
+    {% for racun in object_list %}
+        <tr>
+            <td>{{ racun.stevilkaRacuna }}</td>
+            <td>{{ racun.datumIzdaje }}</td>
+            <td>{{ racun.sifraStranke }}</td>
+            <td><a href="{% url 'cvetlicarna:uredi_racun' pk=racun.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock article_block %}
+
+

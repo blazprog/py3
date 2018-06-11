@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Bootstrap forms</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <style>
+        .just {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Besede</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Who are We</a></li>
+                <li><a href="#">Who are You</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="container page-header">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            Dropdown
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group
+                    btn-group-lg
+                    btn-group-vertical"
+                    role="group" aria-label="...">
+        <button type="button" class="btn btn-default">Left</button>
+        <button type="button" class="btn btn-default">Middle</button>
+        <button type="button" class="btn btn-default">Right</button>
+        </div>
+
+        <h3>Tabbabke navigation</h3>
+        <div class="tabbable">
+        <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Meats</a></li>
+        <li><a href="#tab2" data-toggle="tab">More Meat</a></li>
+        </ul>
+        <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+        <p>Bacon ipsum dolor sit amet jerky flank...</p>
+        </div>
+        <div class="tab-pane" id="tab2">
+        <p>Beef ribs, turducken ham hock...</p>
+        </div>
+        </div>
+        </div>
+
+
+
+    <h1>Learning new words</h1>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+           <ul class="nav nav-pills nav-stacked" id="myTabs">
+                <li class="active"><a href="#home">Home</a></li>
+                <li><a href="#profile">Profile of all possible profiles
+
+                </a></li>
+                <li><a href="#messages">Messages</a></li>
+            </ul>
+
+        </div>
+        <div class="col-md-9 col-md-offset-1">
+            <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="beseda">Beseda</label>
+                        <input id="beseda" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                    <label for="definicija">Definicija</label>
+                    <textarea id="definicija" rows="6" cols="40" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <label for="uporaba">Uporaba</label>
+                    <textarea id="uporaba" rows="6" cols="40" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <label for="prevod">Prevod</label>
+                    <input id="prevod" type="text" class="form-control"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static 'besede/js/jquery.js' %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

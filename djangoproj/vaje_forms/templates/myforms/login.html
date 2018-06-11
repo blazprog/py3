@@ -1,0 +1,14 @@
+{% extends "myforms/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main_content %}
+
+    <h3>Register here</h3>
+    {{ error_message }}
+    <form action="{% url 'login' language=language.language %}" method="post">
+        {% csrf_token %}
+        {{  form|crispy }}
+        <input class="submit btn-primary" type="submit" value="Login{{ save }}"/>
+    </form>
+
+{% endblock main_content %}

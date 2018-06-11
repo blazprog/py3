@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+{% load staticfiles %}
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prodaja pijač</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{% static '_css/site.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static '_js/smartmenus/sm-core-css.css' %}">
+<link rel="stylesheet" href="{% static '_js/smartmenus/sm-clean.css' %}">
+<script src="{% static '_js/jquery.min.js' %}"></script>
+<script src="{% static '_js/smartmenus/jquery.smartmenus.min.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- Bootstrap Core CSS -->
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+          rel="stylesheet" media="screen">
+<script>
+$(document).ready(function() {
+  $('.sm').smartmenus({
+    showFunction: function($ul, complete) {
+      $ul.slideDown(250, complete);
+    },
+    hideFunction: function($ul, complete) {
+     $ul.slideUp(250, complete); 
+    }
+  });
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+      Prodaja pijač
+  </header>
+  <div class="content">
+    <div class="main">
+      <ul class="sm sm-clean">
+        <li><a href="#">Domov</a></li>
+        <li><a href="#">Šifranti</a>
+          <ul>
+              <li><a href="{% url 'seznam_airtiklov' %}">Artikli</a></li>
+              <li><a href="{% url 'seznam_strank' %}">Stranke</a></li>
+              <li><a href="{% url 'seznam_skupin_artiklov' %}">Skupine artiklov</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Dokumenti</a>
+          <ul>
+              <li><a href="{% url 'racun_add' %}">Izdaja računov</a></li>
+            <li><a href="#">Prevzem blaga</a> </li>
+            <li><a href="#">Prejeta naročila</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" style="padding-top:60px;">
+        {% block main_content %}
+        {% endblock main_content %}
+    </div>
+    <!-- End Page Content -->
+
+<footer>
+    <p>Izdelano s pomočjo Django, jQuery, smartmenus</p>
+</footer>
+</div>
+</body>
+</html>

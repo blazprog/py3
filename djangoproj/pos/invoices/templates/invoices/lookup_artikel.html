@@ -1,0 +1,35 @@
+<table class="table table-striped" style="width: auto">
+    <caption>
+    Seznam najdenih artiklov
+    </caption>
+    <thead>
+        <tr>
+            <th>Šifra</th>
+            <th>Naziv</th>
+            <th>Em</th>
+            <th>Cena</th>
+        </tr>
+    </thead>
+    {% for artikel in seznam_artiklov %}
+        <tr class="artikel_data">
+            <td>{{ artikel.sifra }}</td>
+            <td>{{ artikel.naziv }}</td>
+            <td>{{ artikel.em }}</td>
+            <td>{{ artikel.cena }}</td>
+            <td><button id="{{ forloop.counter }}"
+                class="btn btn-sm btn-success
+                btn_izberi_artikel" data-artikel_id="{{ artikel.id }}">
+                Izberi
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+    <script>
+
+
+    $(document).ready(function() {
+        $(".btn_izberi_artikel").click(choose_artikel);
+    })
+    </script>
+)
+</table>

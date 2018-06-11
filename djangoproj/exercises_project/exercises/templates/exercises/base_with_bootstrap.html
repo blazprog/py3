@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load  mytags %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>List of exercises</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'exercises/exercise_list.css' %}" />
+    <style>
+        {% block page_styles%}
+        {% endblock page_styles %}
+    </style>
+</head>
+<body>
+
+    <header>
+    {% block header %}
+    {% if language %}
+        <h1>VAJE IZ {{ language.description }}</h1>
+    {% else %}
+        <h1>VAJE IZ SLOVNICE</h1>
+    {% endif %}
+
+    <ul class="mynav">
+        <li><a href="{% url 'select_language' %}">Domov</a></li>
+        <li><a href="#">Prijava</a></li>
+        <li><a href="#">Registracija</a></li>
+    </ul>
+
+    {% endblock header %}
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            {% block sidenav %}
+                {% get_subject_list language %}
+            {% endblock sidenav %}
+            </div>
+
+            <div class="col-md-11">
+            {% block main_content %}
+            {% endblock main_content %}
+            </div>
+        </div>
+    </div>
+    {% block footer %}
+    <footer>
+        Napis, ki je vedno na dnu strani.
+    </footer>
+    {% endblock footer %}
+    <script src="{% static 'exercises/jquery.js' %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

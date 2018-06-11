@@ -1,0 +1,114 @@
+{% load static %}
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Backbone.js Library</title>
+
+        <!-- jQuery -->
+
+
+        <!-- Bootstrap Core JavaScript -->
+
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+              rel="stylesheet" media="screen">
+        <!--app CSS -->
+        <link href="{% static '_css/app_design.css' %}" rel="stylesheet" media="screen">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <style>
+            
+        </style>
+
+        <script>
+            
+        </script>
+        <title>Books</title>
+    </head>
+
+
+    <body>
+        <script id="bookTemplate" type="text/template">
+            <ul class='list-group book-details'>
+                <li class='list-group-item'>
+                    <span class="view">
+                        <%= title %>
+                    </span>
+                    <input id='title' class="edit" type="text" value='<%= title %>' />
+                </li>
+                <li class='list-group-item'>
+                    <span class="view">
+                        <%= author %>
+                    </span>
+                    <input id='author' class="edit" type="text" value='<%= author%>' />
+                </li>
+                <li class='list-group-item'>
+                    <span class="view">
+                        <%= releaseDate %>
+                    </span>
+                    <input id='releaseDate' class="edit" type="text" value='<%= releaseDate%>' />
+                </li>
+                <li class='list-group-item'>
+                    <span class="view">
+                        <%= keywords %>
+                    </span>
+                    <input id='keywords' class="edit" type="text" value='<%= keywords%>' />
+                </li>
+            </ul>
+            <div class="button-container">
+                <button class="edit btn btn-primary">Edit</button>
+                <button class="save btn btn-primary">Save</button>
+                <button class="delete btn btn-danger">Delete</button>
+            </div>
+        </script>
+       <div class="container">
+           <h1>Books list in Backbone</h1>
+            <div id="books" class="panel panel-default">
+                <div class='panel-body'>
+                    <form id="addBook" role='form' action="#">
+                        <!--label for="coverImage">CoverImage: </label-->
+                        <!--input id="coverImage" type="file" /-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="title">Title: </label>
+                                <input id="title" type="text" class="form-control input-sm" />
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author: </label>
+                                <input id="author" type="text" class='form-control input-sm'/>
+                            </div>
+                        </div>
+                        <div class=col-md-6>
+                            <div class="form-group">
+                                <label for="releaseDate">Release date: </label>
+                                <input id="releaseDate" type="text" class='form-control input-sm'/>
+                            </div>
+                            <div class="form-group">
+                                <label for="keywords">Keywords: </label>
+                                <input id="keywords" type="text" class='form-control input-sm' />
+                            </div>
+                        </div>
+                        <button id="add_book" class='btn btn-primary'>Add</button>
+                    </form>
+                </div>
+            </div>
+
+
+            
+       
+
+       <script src="{% static 'bootstrap/js/jquery.js' %}"></script>
+       <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+       <script src="{% static '_js/underscore.js' %}"></script>
+       <script src="{% static '_js/backbone.js' %}"></script>
+       <script src="{% static '_js/backbone.localStorage.js' %}"></script>
+       <script src="{% static '_js/site.js' %}"></script>
+    </body>
+</html>
